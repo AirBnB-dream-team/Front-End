@@ -65,6 +65,8 @@ function NewListing(props){
                     placeholder="address"
                     value={values.address}
                 />
+                {touched.address && errors.address && (
+                    <p className="error"> {errors.address}</p>)}
 
                 <Field
                     name='city' 
@@ -72,7 +74,9 @@ function NewListing(props){
                     placeholder="city"
                     value={values.city}
                 />
-
+                
+                {touched.city && errors.city && (
+                    <p className="error"> {errors.city}</p>)}
 
                 <Field
                     name='state' 
@@ -80,13 +84,16 @@ function NewListing(props){
                     placeholder="state"
                     value={values.state}
                 />
-
+                {touched.state && errors.state && (
+                    <p className="error"> {errors.state}</p>)}
                 <Field
                     name='price' 
                     id='price'
                     placeholder="price"
                     value={values.price}
                 />
+                {touched.price && errors.price && (
+                    <p className="error"> {errors.price}</p>)}
 
                 <Field
                     name='sqft' 
@@ -94,12 +101,17 @@ function NewListing(props){
                     placeholder="sqft"
                     value={values.sqft}
                 />
+
+                {touched.sqft && errors.sqft && (
+                    <p className="error"> {errors.sqft}</p>)}
                 <Field
                     name='email' 
                     id='email'
                     placeholder="email"
                     value={values.email}
                 />
+                {touched.email && errors.email && (
+                    <p className="error"> {errors.email}</p>)}
 
                 <Field
                     type="date"
@@ -108,6 +120,8 @@ function NewListing(props){
                     placeholder="date"
                     value={values.date}
                 />
+                {touched.date && errors.date && (
+                    <p className="error"> {errors.date}</p>)}
                 <button disabled={!values.bedrooms || !values.bathrooms}onClick={checkPrice}>Check Price</button>
                 
                 <button type="submit">Create Listing</button>
@@ -150,7 +164,13 @@ const FormikNewListing = withFormik({
     validationSchema: Yup.object().shape({
         bedrooms:Yup.number().min(0).required("Bedrooms required"),
         bathrooms:Yup.number().min(0).required("Bathrooms required"),
-        zip: Yup.string().required("Zip Required").test('len', 'Must be exactly 5 characters', val => val && val.toString().length === 5)
+        zip: Yup.string().required("Zip Required").test('len', 'Must be exactly 5 characters', val => val && val.toString().length === 5),
+        address:Yup.string().required('Address Required'),
+        city:Yup.string().required('City Required'),
+        price:Yup.number().required('Price Required'),
+        email: Yup.string().email('Invalid Email Address').required('Email required'),
+        date: Yup.date().min(new Date())
+
     })
 
 })(NewListing);
