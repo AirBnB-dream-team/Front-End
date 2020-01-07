@@ -18,3 +18,4 @@ export const register = values => dispatch => {
             dispatch({type: REGISTER_FAILURE, payload: err})
         })
 }
+
