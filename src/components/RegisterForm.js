@@ -26,7 +26,7 @@ function RegisterForm(props){
                     id='username' 
                     value={values.username}
                 />
-                {touched && errors.username && (
+                {touched.username && errors.username && (
                     <p> {errors.username}</p>
                 )}
                 <label htmlFor='password'>Password</label>
@@ -36,7 +36,7 @@ function RegisterForm(props){
                     id='password'
                     value = {values.password}
                 />
-                {touched && errors.password && (
+                {touched.password && errors.password && (
                     <p> {errors.password}</p>
                 )}
                 
@@ -47,7 +47,7 @@ function RegisterForm(props){
                     name='email' 
                     value = {values.email}
                 />
-                {touched && errors.email && (
+                {touched.email && errors.email && (
                     <p> {errors.email}</p>
                 )}
                 <button type="submit">Register</button>
