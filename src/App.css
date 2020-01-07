@@ -1,3 +1,8 @@
+* {
+  
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
 .App {
   text-align: center;
 }
@@ -37,18 +42,52 @@
   }
 
 }
-
-
-.login-form {
-  display:flex;
-  flex-direction: column;
+/* errors */
+.errors {
+  color: red;
+}
+/* Registration styling */
+.register { 
+  border: 1px solid #ebe6e6;
+  width: 30%;
+  padding:20px;
+  margin: 25vh auto;
  
-  align-items: center;
-}
+ 
 
-input {
-  size: 500px;
 }
+.registration-form {
+  width: 100%;
+  display: flex;
+  flex-direction:column;
+  font-size: 1.9rem;
+}
+.registration-form input {
+  width: 100%;
+  margin-top:10px;
+  font-size: 1.2rem;
+  flex: 1;
+  padding: 8px;
+  
+  
+  border-radius: 3px;
+  border: 1px solid #ebe6e6;
+  
+
+}
+.registration-form button {
+  width: 100%;
+  margin-top:10px;
+  border-radius: 4px;
+  line-height: 24px;
+  font-size: 1.6rem;
+  background:#e8d4b4;
+
+}
+/* input {
+  size: 500px;
+  
+} */
 
 /* MyListings styling */
 .mylistings-header {

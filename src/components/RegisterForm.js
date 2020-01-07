@@ -18,42 +18,56 @@ function RegisterForm(props){
             errors,
           } = props;
     return (
-       
-            <Form className='login-form'>
-                <label htmlFor='username'>Username</label>
-                <Field
-                    name='username' 
-                    id='username' 
-                    value={values.username}
-                />
-                {touched.username && errors.username && (
-                    <p> {errors.username}</p>
-                )}
-                <label htmlFor='password'>Password</label>
-                <Field 
-                    type='password' 
-                    name='password' 
-                    id='password'
-                    value = {values.password}
-                />
-                {touched.password && errors.password && (
-                    <p> {errors.password}</p>
-                )}
-                
+            <div className='register'>
+                <Form className='registration-form'>
+                    <h2>Register Your Account </h2>
+                    <div>
+                        
+                        <Field
+                            name='username' 
+                            id='username' 
+                            placeholder="Username"
+                            value={values.username}
 
-                <label htmlFor='email'>Email</label>
-                <Field
-                    type='email' 
-                    name='email' 
-                    value = {values.email}
-                />
-                {touched.email && errors.email && (
-                    <p> {errors.email}</p>
-                )}
-                <button type="submit">Register</button>
+                        />
+                        {touched.username && errors.username && (
+                            <p className="errors"> {errors.username}</p>
+                        )}
+                    </div>
+                    <div>
+                        
+                        <Field 
+                            type='password' 
+                            name='password' 
+                            id='password'
+                            id='username' 
+                            placeholder="Create Password"
+                            value = {values.password}
+                        />
+                        {touched.password && errors.password && (
+                            <p className="errors"> {errors.password}</p>
+                        )}
+                    </div>
+                    
+                    
+                    <div>
+                        
+                        <Field
+                            type='email' 
+                            name='email' 
+                            value = {values.email}
+                            placeholder="Email address"
+                        />
+                        {touched.email && errors.email && (
+                            <p className="errors"> {errors.email}</p>
+                        )}
+                    </div>
+                    <div>
+                        <button type="submit">Register</button>
+                    </div>
 
-            </Form>
-       
+                </Form>
+            </div>
             
        
 
@@ -71,7 +85,7 @@ const FormikRegisterForm = withFormik({
     validationSchema: Yup.object().shape({
         username: Yup.string().required('Username required'),
         email: Yup.string().email('Invalid Email Address').required('Email required'),
-        password:Yup.string().min(3, "3 or more characters").matches('^(?=.*[0-9]$)(?=.*[a-zA-Z])', "Password must contain atleast 1 letter and 1 number").required("PassRequired")
+        password:Yup.string().min(3, "3 or more characters").matches('^(?=.*[0-9]$)(?=.*[a-zA-Z])', "Password must contain atleast 1 letter and 1 number").required("Password required")
     }),
     handleSubmit(values, {props, resetForm}) {
         props.register(values);
