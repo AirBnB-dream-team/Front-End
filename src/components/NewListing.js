@@ -15,6 +15,10 @@ function NewListing(props){
     const { values, touched, errors
           } = props;
 
+          console.log('Errors: ',errors)
+          console.log('Touched: ',touched)
+          
+
     const checkPrice = (e) => {
         e.preventDefault();
         console.log(`Bedrooms: ${values.bedrooms} Bathrooms: ${values.bathrooms}`)
@@ -124,7 +128,7 @@ function NewListing(props){
                     <p className="error"> {errors.date}</p>)}
                 <button disabled={!values.bedrooms || !values.bathrooms}onClick={checkPrice}>Check Price</button>
                 
-                <button type="submit">Create Listing</button>
+                <button disabled={Object.getOwnPropertyNames(touched).length === 0|| !(Object.getOwnPropertyNames(errors).length === 0)}type="submit">Create Listing</button>
 
             </Form>
        
@@ -169,9 +173,20 @@ const FormikNewListing = withFormik({
         city:Yup.string().required('City Required'),
         price:Yup.number().required('Price Required'),
         email: Yup.string().email('Invalid Email Address').required('Email required'),
-        date: Yup.date().min(new Date())
+        date: Yup.date().min(new Date()).required('Date Required')
 
-    })
+    }),
+    handleSubmit(values, {setStatus, resetForm}) {
+        console.log("submitting! ", values);
+        // This is just a placeholder api data.
+        axios.
+        post("https://reqres.in/api/users/", values)
+        .then ( res => {
+            console.log('Successfully submitted', values)
+            setStatus(res.data)
+            resetForm();
+        })
+      }
 
 })(NewListing);
 
