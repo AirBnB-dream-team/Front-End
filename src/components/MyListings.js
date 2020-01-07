@@ -22,7 +22,7 @@ const CardDiv = Styled.div `
     color: black;
     `
 
-const EditForm = styled.form`
+const EditForm = Styled.form `
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -37,7 +37,7 @@ const EditForm = styled.form`
 // Banner and logout button here
 
 
-const MyListingsHeader = () => {
+const MyListingsHeader = props => {
     return (
         <div className="mylistings-header">
             <h2>{props.userID}'s Listings</h2>
@@ -79,14 +79,14 @@ const UserEvent = props => {
     return (
         <>
         <CardDiv className="mylistings">
-            <h1>{props.index.streetAddr}</h1>
-            <h3>{props.index.city}, {props.index.state} {props.index.zip}</h3>
-            <p>Price:</p> <h4>{props.index.price}</h4>
-            <p>Baths:</p> <h4>{props.index.bathNum}</h4>
-            <p>Beds:</p> <h4>{props.index.bedNum}</h4>
-            <p>Sq.Ft:</p> <h4>{props.index.sqFt}</h4>
-            <p>Date:</p> <h4>{props.index.date}</h4>
-            <p>Email:</p> <h4>{props.index.email}</h4>
+            <div className="card-line"><h1>{props.index.streetAddr}</h1></div>
+            <div className="card-line"><h3>{props.index.city}, {props.index.state} {props.index.zip}</h3></div>
+            <div className="card-line"><p>Price:</p> <h4>{props.index.price}</h4></div>
+            <div className="card-line"><p>Baths:</p> <h4>{props.index.bathNum}</h4></div>
+            <div className="card-line"><p>Beds:</p> <h4>{props.index.bedNum}</h4></div>
+            <div className="card-line"><p>Sq.Ft:</p> <h4>{props.index.sqFt}</h4></div>
+            <div className="card-line"><p>Date:</p> <h4>{props.index.date}</h4></div>
+            <div className="card-line"><p>Email:</p> <h4>{props.index.email}</h4></div>
             <button
             onClick={() => {
                 setEditing(!editing);
@@ -109,70 +109,78 @@ const UserEvent = props => {
 
         {editing ? (
             <EditForm onSubmit={onSaveSubmit} className="edit-form">
-            <label>Number of Baths</label>
-            <input
-                type="text"
-                name="baths"
-                onChange={handleChange}
-                placeholder="Enter number here"
-                value={input.bathNum}
-            />
+                <label>Number of Baths</label>
+                <input
+                    type="text"
+                    name="baths"
+                    onChange={handleChange}
+                    placeholder="Enter number here"
+                    value={input.bathNum}
+                />
 
-            <label>Number of Beds</label>
-            <input
-                type="text"
-                name="beds"
-                onChange={handleChange}
-                placeholder="Enter number here"
-                value={input.bedNum}
-            />
+                <label>Number of Beds</label>
+                <input
+                    type="text"
+                    name="beds"
+                    onChange={handleChange}
+                    placeholder="Enter number here"
+                    value={input.bedNum}
+                />
 
-            <label>Zipcode</label>
-            <input
-                type="text"
-                name="zipcode"
-                onChange={handleChange}
-                placeholder="Enter zipcode here"
-                value={input.zip}
-            />
+                <label>Zipcode</label>
+                <input
+                    type="text"
+                    name="zipcode"
+                    onChange={handleChange}
+                    placeholder="Enter zipcode here"
+                    value={input.zip}
+                />
 
-            <label>City</label>
-            <input
-                type="text"
-                name="city"
-                onChange={handleChange}
-                placeholder="Enter city here"
-                value={input.city}
-            />
+                <label>City</label>
+                <input
+                    type="text"
+                    name="city"
+                    onChange={handleChange}
+                    placeholder="Enter city here"
+                    value={input.city}
+                />
 
-            <label>State</label>
-            <input
-                type="text"
-                name="state"
-                onChange={handleChange}
-                placeholder="Enter full name of state here"
-                value={input.state}
-            />
+                <label>State</label>
+                <input
+                    type="text"
+                    name="state"
+                    onChange={handleChange}
+                    placeholder="Enter full name of state here"
+                    value={input.state}
+                />
 
-            <label>Square-footage</label>
-            <input
-                type="text"
-                name="square-footage"
-                onChange={handleChange}
-                placeholder="Enter number here"
-                value={input.sqFt}
-            />
+                <label>Square-footage</label>
+                <input
+                    type="text"
+                    name="square-footage"
+                    onChange={handleChange}
+                    placeholder="Enter number here"
+                    value={input.sqFt}
+                />
 
-            <label>Date</label>
-            <input
-                type="text"
-                name="date"
-                onChange={handleChange}
-                placeholder="Enter date here"
-                value={input.date}
-            />
+                <label>Date</label>
+                <input
+                    type="text"
+                    name="date"
+                    onChange={handleChange}
+                    placeholder="Enter date here"
+                    value={input.date}
+                />
 
-            <button className="card-btn">Save</button>
+                <button 
+                    className="card-btn"
+                    onClick={() => {
+                        setEditing(!editing);
+                        setInput(props.index);
+                    }}
+                >
+                    Save
+                </button>
             </EditForm>
         ) : null}
         </>
