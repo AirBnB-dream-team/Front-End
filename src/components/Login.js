@@ -1,5 +1,8 @@
 import React from 'react';
 import { Formik } from 'formik';
+import {connect} from 'react-redux';
+
+import {login} from '../actions/login'
 
 const Login = () => (
     <div className="login-form" style={{ textAlign: "center" }}>
@@ -67,4 +70,4 @@ const Login = () => (
     </div>
 );
 
-export default Login;
+export default connect(null, {login})(Login);
