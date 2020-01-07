@@ -49,3 +49,50 @@
 input {
   size: 500px;
 }
+
+/* MyListings styling */
+.mylistings-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 3%, 5%, 3%, 5%;
+  align-items: center;
+}
+
+.new-listing-btn {
+  border: 3px solid grey;
+  border-radius: 4px;
+  padding: 0.75%;
+}
+
+/* Edit Modal styling */
+
+.edit-form {
+  position:  fixed;
+  top: 25px;
+  z-index: 1;
+  animation: fadeIn 1s;
+  width: 40%;
+  border-radius: 10px;
+  padding: 30px 0;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border: black 1px solid;
+
+}
+
+.edit-form input {
+  font-size: 1.9rem;
+}
+
+.edit-form label {
+  width: 25%;
+  font-size: 1.9rem;
+}
+
+.edit-form input {
+  font-size: 1.5rem;
+  width: 60%;
+  margin-bottom: 20px;
+}
