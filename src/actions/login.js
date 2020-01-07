@@ -8,7 +8,7 @@ export const login = (credentials) => dispatch => {
     dispatch ({type: START_LOGIN});
     axios
         .post(
-            '/login',
+            'https://airbnbclonedevin.herokuapp.com/auth/login',
             credentials
         )
         .then(res => {

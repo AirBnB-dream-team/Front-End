@@ -2,6 +2,9 @@ import React from 'react';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import {connect} from 'react-redux';
+import {register} from '../actions/register'
+
 
 
 
@@ -67,22 +70,14 @@ const FormikRegisterForm = withFormik({
     },
     validationSchema: Yup.object().shape({
         username: Yup.string().required('Username required'),
-        
         email: Yup.string().email('Invalid Email Address').required('Email required'),
         password:Yup.string().min(3, "3 or more characters").matches('^(?=.*[0-9]$)(?=.*[a-zA-Z])', "Password must contain atleast 1 letter and 1 number").required("PassRequired")
     }),
-    handleSubmit(values, {setStatus, resetForm}) {
-        console.log("submitting! ", values);
-        // This is just a placeholder api data.
-        axios.
-        post("https://reqres.in/api/users/", values)
-        .then ( res => {
-            console.log('Successfully submitted', values)
-            setStatus(res.data)
-            resetForm();
-        })
+    handleSubmit(values, {props, resetForm}) {
+        props.register(values);
+        resetForm();
       }
 
 })(RegisterForm);
 
-export default FormikRegisterForm;
+export default connect(null, {register})(FormikRegisterForm);
