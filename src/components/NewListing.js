@@ -27,7 +27,7 @@ function NewListing(props){
        
             <Form className='new-listing'>
                 <Field
-                    type='number'
+                    type='text'
                     name='bedrooms' 
                     id='bedrooms'
                     placeholder="No. of Bedrooms"
@@ -37,7 +37,7 @@ function NewListing(props){
                     <p className="error"> {errors.bedrooms}</p>
                 )}
                  <Field
-                    type='number'
+                    type='text'
                     name='bathrooms' 
                     id='bathrooms'
                     placeholder="No. of bathrooms"
