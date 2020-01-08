@@ -13,7 +13,9 @@ import {
 import {
     UPDATING,
     GET_SUCCESS,
-    SUCCESS,
+    ADD_SUCCESS,
+    UPDATE_SUCCESS,
+    DELETE_SUCCESS,
     FAILURE
 } from '../actions/listingsActions'
 
@@ -77,7 +79,7 @@ const initialState = {
                 listings: action.payload,
                 isUpdating: false
             }
-            case SUCCESS : 
+            case ADD_SUCCESS : 
             return {
                 ...state,
                 listings: action.payload,
