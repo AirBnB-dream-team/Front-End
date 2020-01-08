@@ -158,3 +158,40 @@
   width: 60%;
   margin-bottom: 20px;
 }
+
+/* Navigation Styling */
+header {
+  display: flex;
+  padding: 2%;
+  background:#f3f3f3;
+ 
+}
+header .logo-container {
+  width: 50%;
+  text-align: start;
+}
+
+header .logo-container img {
+  width:15%;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color:black;
+
+}
+
+.selected::after {
+  content:'';
+  background-color:black;
+
+}
+.selected {
+  color:#ff896b;
+   
+}
+
+
+ 

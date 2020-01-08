@@ -16,7 +16,7 @@ const MyListings = props => {
                 </div>
             </div>
             <div className="mylistings-cards">
-                <MyListingsCards index={index} />
+                {/* <MyListingsCards index={index} /> */}
             </div>
         </div>
     );
