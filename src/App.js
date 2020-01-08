@@ -7,12 +7,17 @@ import NavBar from './components/NavBar';
 import MyListings from './components/MyListingsPage';
 import NewListing from './components/NewListing';
 import { Route, Switch } from 'react-router-dom';
+
+
 import {PrivateRoute} from './components/PrivateRoute'
+import AllListingsPage from './components/AllListingsPage';
 
 function App() {
   return (
     <div className="App">
       <NavBar />
+      
+
       <Switch>
         <Route exact path='/login' component={Login}/>
         <Route path='/register' component={RegisterForm}/>  
