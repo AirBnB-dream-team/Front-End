@@ -1,3 +1,8 @@
+* {
+  
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
 .App {
   text-align: center;
 }
@@ -37,18 +42,68 @@
   }
 
 }
-
-
-.login-form {
-  display:flex;
-  flex-direction: column;
+/* errors */
+.errors {
+  color: red;
+}
+/* Registration styling */
+.register { 
+  border: 1px solid #ebe6e6;
+  width: 30%;
+  padding:20px;
+  margin: 25vh auto;
  
-  align-items: center;
+ 
+
+}
+.registration-form {
+  width: 100%;
+  display: flex;
+  flex-direction:column;
+  font-size: 1.9rem;
+}
+.registration-form input {
+  width: 100%;
+  margin-top:10px;
+  font-size: 1.2rem;
+  flex: 1;
+  padding: 8px;
+  
+  
+  border-radius: 3px;
+  border: 1px solid #ebe6e6;
+  
+
+}
+.registration-form button {
+  width: 100%;
+  margin-top:10px;
+  border-radius: 4px;
+  line-height: 24px;
+  font-size: 1.6rem;
+  background:#e8d4b4;
+
 }
 
-input {
-  size: 500px;
+
+/* registration responsive css */
+@media only screen and (max-width: 500px) {
+  .register {
+    width:60%;
+  }
 }
+/* input {
+  size: 500px;
+  
+} */
+
+/* Login styling */
+.signin-form {
+  text-align: center;
+  background-color: #e8d4b4;
+  border: 1px solid black;
+}
+
 
 /* MyListings styling */
 .mylistings-header {
@@ -62,6 +117,13 @@ input {
   border: 3px solid grey;
   border-radius: 4px;
   padding: 0.75%;
+}
+
+.card-line {
+  display: flex;
+  margin: 5px;
+  padding: 5px;
+  align-items: center;
 }
 
 /* Edit Modal styling */
