@@ -5,7 +5,23 @@ import {
 } from '../actions/listingsActions'
 
 const initialState = {
-    listings: [],
+    listings: [
+        {
+            "id": 0,
+            "planner_id": 0,
+            "bath_number": "3",
+            "bed_number": "3",
+            "zip": "56487",
+            "address": "33/44/2312",
+            "city": "boston",
+            "state": "ma",
+            "email": "email@gmail.com",
+            "sqft": "4567",
+            "date": "33/44/2312",
+            "price": 800,
+            "reserved": null
+        }
+    ],
     isUpdating: false,
     error: ''
 };

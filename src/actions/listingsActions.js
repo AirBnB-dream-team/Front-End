@@ -9,8 +9,7 @@ export const getUserListings = (id) => dispatch => {
     axios
         .get(`https://airbnbclonedevin.herokuapp.com/api/${id}`)
         .then(res=>{
-            console.log('user listings res', res)
-            dispatch({type: SUCCESS, payload: res})
+            dispatch({type: SUCCESS, payload: res.data})
         })
         .catch(err =>{
             dispatch({type: FAILURE, payload: err})
