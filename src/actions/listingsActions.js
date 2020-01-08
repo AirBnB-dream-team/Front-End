@@ -39,7 +39,7 @@ export const deleteListing = listingId => dispatch => {
         .delete(`/api/${listingId}`)
         .then(res=>{
             console.log('delete listing res', res)
-            dispatch({type: SUCCESS, payload: res})
+            dispatch({type: DELETE_SUCCESS, payload: res})
         })
         .catch(err=>{
             dispatch({type: FAILURE, payload: err})
@@ -52,7 +52,7 @@ export const updateListing = (info) => dispatch => {
         .put(`/api/${info.id}`, info)
         .then(res=>{
             console.log('update listing res', res)
-            dispatch({type: SUCCESS, payload: res})
+            dispatch({type: UPDATE_SUCCESS, payload: res})
         })
         .catch(err=>{
             dispatch({type: FAILURE, payload: err})

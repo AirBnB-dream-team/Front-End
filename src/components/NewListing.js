@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { withFormik, Form, Field, connect} from 'formik';
+import { withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 
 import axios from 'axios';
@@ -30,7 +30,7 @@ function NewListing(props){
 
                    
                     name='bed_number' 
-                    id='bedrooms'
+                    id='bed_number'
                     placeholder="No. of Bedrooms"
                     value={values.bed_number}
                 />
@@ -41,7 +41,7 @@ function NewListing(props){
 
                     
                     name='bath_number' 
-                    id='bathrooms'
+                    id='bath_number'
                     placeholder="No. of bathrooms"
                     value={values.bath_number}
                 />
@@ -125,7 +125,7 @@ function NewListing(props){
                     <p className="error"> {errors.date}</p>)}
                 <button disabled={!values.bed_number || !values.bath_number}onClick={checkPrice}>Check Price</button>
                 
-                <button type="submit">Create Listing</button>
+                <button disabled={Object.getOwnPropertyNames(touched).length === 0|| !(Object.getOwnPropertyNames(errors).length === 0)}type="submit">Create Listing</button>
 
             </Form>
        
@@ -134,8 +134,6 @@ function NewListing(props){
 
     )
 }
-
-// disabled={Object.getOwnPropertyNames(touched).length === 0|| !(Object.getOwnPropertyNames(errors).length === 0)}type="submit"
 
 const FormikNewListing = withFormik({
     mapPropsToValues({ 
@@ -165,8 +163,8 @@ const FormikNewListing = withFormik({
         };
     },
     validationSchema: Yup.object().shape({
-        bedrooms:Yup.string().required("Bedrooms required"),
-        bathrooms:Yup.string().required("Bathrooms required"),
+        bed_number:Yup.string().required("Bedrooms required"),
+        bath_number:Yup.string().required("Bathrooms required"),
         zip: Yup.string().required("Zip Required").test('len', 'Must be exactly 5 characters', val => val && val.toString().length === 5),
         address:Yup.string().required('Address Required'),
         city:Yup.string().required('City Required'),
@@ -178,8 +176,8 @@ const FormikNewListing = withFormik({
     handleSubmit(values, {setStatus, resetForm}) {
         console.log("submitting! ", values);
         // This is just a placeholder api data.
-        axios
-        .post("https://reqres.in/api/users/", values)
+        axios.
+        post("https://reqres.in/api/users/", values)
         .then ( res => {
             console.log('Successfully submitted', values)
             setStatus(res.data)
@@ -189,4 +187,4 @@ const FormikNewListing = withFormik({
 
 })(NewListing);
 
-export default connect(null, {addListing})(Login);
+export default FormikNewListing;
