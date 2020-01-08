@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {login} from '../actions/login'
 
 const Login = () => (
-    <div className="login-form" style={{ textAlign: "center" }}>
+    <div className="signin-form">
         <h1 style={{ fontSize: "3rem" }}>Login:</h1>
         <Formik
             initialValues={{ email: '', password: '' }}
