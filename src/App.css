@@ -85,6 +85,7 @@
 
 }
 
+
 /* registration responsive css */
 @media only screen and (max-width: 500px) {
   .register {
@@ -95,6 +96,14 @@
   size: 500px;
   
 } */
+
+/* Login styling */
+.signin-form {
+  text-align: center;
+  background-color: #e8d4b4;
+  border: 1px solid black;
+}
+
 
 /* MyListings styling */
 .mylistings-header {
