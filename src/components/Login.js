@@ -33,7 +33,7 @@ function LoginForm(props){
                 {touched.password && errors.password && (
                     <p> {errors.password}</p>
                 )}
-                <button type="submit">Register</button>
+                <button type="submit">Login</button>
 
             </Form>
        

@@ -12,6 +12,7 @@ export const login = (credentials) => dispatch => {
             credentials
         )
         .then(res => {
+            console.log('login res',res)
             dispatch({type: LOGIN_SUCCESS, payload: res});
         })
         .catch(err=> {
