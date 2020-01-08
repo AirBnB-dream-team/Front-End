@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import MyListingsCards from './MyListingsCards';
 import { connect } from "react-redux";
@@ -11,24 +11,30 @@ import {
 } from '../actions/listingsActions'
 
 const MyListings = props => {
-    props.getUserListings();
+    useEffect(()=>{
+        props.getUserListings(props.match.params.id);
+    },[])
+    
     return (
         <div className="mylistings-page">
             <div className="mylistings-header">
                 <h2>User's Listings</h2>
                 <div className="new-listing-btn">
-                    <Link to="/new-listing">
+                    <Link to={`/new-listing/${props.match.params.id}`}>
                         New Listing
                     </Link>
                 </div>
             </div>
             <div className="mylistings-cards">
                 <p>listing cards</p>
-                {/* {props.listings.map(val=>(
-                    <div>
-                        <MyListingsCards key={val.id} listing={val}/>
-                    </div>
-                ))} */}
+                {props.listings.map(val=>{
+                    return (
+                        <div>
+                            <MyListingsCards key={val.id} listing={val}/>
+                        </div>
+                    )
+                })}
+                
                 
             </div>
         </div>
