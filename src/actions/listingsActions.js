@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
+import history from '../history'
 
 export const UPDATING = 'UPDATING';
 export const GET_SUCCESS = 'GET_SUCCESS';
@@ -20,13 +21,13 @@ export const getUserListings = (id) => dispatch => {
         })
 }
 
-export const addListing = (info) => dispatch => {
+export const addListing = (id, info) => dispatch => {
     dispatch({type: UPDATING})
-    axios
-        .post(`/api/${info.id}`, info)
+    axiosWithAuth()
+        .post(`/api/${id}`, info)
         .then(res=>{
             dispatch({type: ADD_SUCCESS, payload: res.data})
-            
+            history.push(`/my-listings/${res.data.id}`)
         })
         .catch(err=>{
             dispatch({type: FAILURE, payload: err})
@@ -53,6 +54,7 @@ export const updateListing = (info) => dispatch => {
         .then(res=>{
             console.log('update listing res', res)
             dispatch({type: UPDATE_SUCCESS, payload: res})
+
         })
         .catch(err=>{
             dispatch({type: FAILURE, payload: err})
