@@ -24,11 +24,11 @@ const MyListings = props => {
             </div>
             <div className="mylistings-cards">
                 <p>listing cards</p>
-                {props.listings.map(val=>(
+                {/* {props.listings.map(val=>(
                     <div>
                         <MyListingsCards key={val.id} listing={val}/>
                     </div>
-                ))}
+                ))} */}
                 
             </div>
         </div>

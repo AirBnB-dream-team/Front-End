@@ -7,7 +7,7 @@ export const FAILURE = 'FAILURE';
 export const getUserListings = (id) => dispatch => {
     dispatch({type: UPDATING})
     axios
-        .get(`https://airbnbclonedevin.herokuapp.com/api/${id}`)
+        .get(`/api/${id}`)
         .then(res=>{
             dispatch({type: SUCCESS, payload: res.data})
         })
@@ -19,7 +19,7 @@ export const getUserListings = (id) => dispatch => {
 export const addListing = (info) => dispatch => {
     dispatch({type: UPDATING})
     axios
-        .post(`https://airbnbclonedevin.herokuapp.com/api/${info.id}`, info)
+        .post(`/api/${info.id}`, info)
         .then(res=>{
             console.log('add listing res', res)
             dispatch({type: SUCCESS, payload: res})
@@ -32,7 +32,7 @@ export const addListing = (info) => dispatch => {
 export const deleteListing = listingId => dispatch => {
     dispatch({type: UPDATING})
     axios
-        .delete(`https://airbnbclonedevin.herokuapp.com/api/${listingId}`)
+        .delete(`/api/${listingId}`)
         .then(res=>{
             console.log('delete listing res', res)
             dispatch({type: SUCCESS, payload: res})
@@ -45,7 +45,7 @@ export const deleteListing = listingId => dispatch => {
 export const updateListing = (info) => dispatch => {
     dispatch({type: UPDATING})
     axios
-        .put(`https://airbnbclonedevin.herokuapp.com/api/${info.id}`, info)
+        .put(`/api/${info.id}`, info)
         .then(res=>{
             console.log('update listing res', res)
             dispatch({type: SUCCESS, payload: res})
