@@ -8,7 +8,8 @@ import MyListings from './components/MyListingsPage';
 import NewListing from './components/NewListing';
 import { Route, Switch } from 'react-router-dom';
 import MyListingsPage from './components/MyListingsPage';
-import {PrivateRoute} from './components/PrivateRoute'
+import Footer from './components/Footer';
+import {PrivateRoute} from './components/PrivateRoute';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path='/logout'/>
         
       </Switch>
+      <Footer />
     </div>
   );
 }
