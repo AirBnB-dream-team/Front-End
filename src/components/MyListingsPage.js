@@ -3,8 +3,15 @@ import { Link } from 'react-router-dom';
 import MyListingsCards from './MyListingsCards';
 import { connect } from "react-redux";
 
-const MyListings = props => {
+import {
+    getUserListings,
+    addListing,
+    deleteListing,
+    updateListing
+} from '../actions/listingsActions'
 
+const MyListings = props => {
+    props.getUserListings();
     return (
         <div className="mylistings-page">
             <div className="mylistings-header">
@@ -16,7 +23,13 @@ const MyListings = props => {
                 </div>
             </div>
             <div className="mylistings-cards">
-                <MyListingsCards index={index} />
+                <p>listing cards</p>
+                {/* {props.listings.map(val=>(
+                    <div>
+                        <MyListingsCards key={val.id} listing={val}/>
+                    </div>
+                ))} */}
+                
             </div>
         </div>
     );
@@ -24,14 +37,18 @@ const MyListings = props => {
 
 const mapStateToProps = state => {
     return {
-        user: state.user,
-        events: state.events,
-        isLoading: state.isLoading,
+        listings: state.listings,
+        isUpdating: state.isUpdating,
         error: state.error
     };
 };
 
 export default connect(
     mapStateToProps,
-    null
+    {
+        getUserListings,
+        addListing,
+        deleteListing,
+        updateListing
+    }
 )(MyListings);

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { withFormik, Form, Field, yupToFormErrors } from 'formik';
+import { withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 
 import axios from 'axios';
@@ -10,8 +10,7 @@ import axios from 'axios';
 
 
 function NewListing(props){   
-   const [price, setPrice] = useState();
-
+   
     const { values, touched, errors
           } = props;
 
@@ -22,10 +21,6 @@ function NewListing(props){
     const checkPrice = (e) => {
         e.preventDefault();
         console.log(`Bedrooms: ${values.bedrooms} Bathrooms: ${values.bathrooms}`)
-       //Axios call here?
-
-       //After axios returns the price variable replace the place variable with value and uncomment
-       // setPrice(value)
 
     }
     return (
