@@ -8,9 +8,9 @@ import MyListings from './components/MyListingsPage';
 import NewListing from './components/NewListing';
 import { Route, Switch } from 'react-router-dom';
 
-
+import Footer from './components/Footer';
 import {PrivateRoute} from './components/PrivateRoute'
-import AllListingsPage from './components/AllListingsPage';
+
 
 function App() {
   return (
@@ -24,6 +24,7 @@ function App() {
         <PrivateRoute path='/my-listings/:id' component={MyListings}/>
         <PrivateRoute path='/new-listing/:id' component={NewListing}/>
       </Switch>
+      <Footer />
     </div>
   );
 }
