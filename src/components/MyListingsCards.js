@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import Styled from 'styled-components';
+import { deleteItem, editItem } from "../actions";
+import { connect } from "react-redux";
 
 // Form & Card styling
 
@@ -33,33 +34,17 @@ const EditForm = Styled.form `
 
 // End styling
 
-
-// Banner and logout button here
-
-
-const MyListingsHeader = props => {
-    return (
-        <div className="mylistings-header">
-            <h2>{props.userID}'s Listings</h2>
-            <div className="new-listing-btn">
-                <Link to="/new-listing">New Listing</Link>
-            </div>
-        </div>
-    )
-}
-
-
-const UserEvent = props => {
+const MyListingsCards = props => {
     const [editing, setEditing] = useState(false);
     const [input, setInput] = useState({
-        streetAddr: "",
+        address: "",
         city: "",
         state: "",
         zip: "",
         price: "",
-        bathNum: "",
-        bedNum: "",
-        sqFt: "",
+        bath_number: "",
+        bed_number: "",
+        sqft: "",
         email: "",
         date: ""
     });
@@ -79,12 +64,12 @@ const UserEvent = props => {
     return (
         <>
         <CardDiv className="mylistings">
-            <div className="card-line"><h1>{props.index.streetAddr}</h1></div>
+            <div className="card-line"><h1>{props.index.address}</h1></div>
             <div className="card-line"><h3>{props.index.city}, {props.index.state} {props.index.zip}</h3></div>
             <div className="card-line"><p>Price:</p> <h4>{props.index.price}</h4></div>
-            <div className="card-line"><p>Baths:</p> <h4>{props.index.bathNum}</h4></div>
-            <div className="card-line"><p>Beds:</p> <h4>{props.index.bedNum}</h4></div>
-            <div className="card-line"><p>Sq.Ft:</p> <h4>{props.index.sqFt}</h4></div>
+            <div className="card-line"><p>Baths:</p> <h4>{props.index.bath_number}</h4></div>
+            <div className="card-line"><p>Beds:</p> <h4>{props.index.bed_number}</h4></div>
+            <div className="card-line"><p>Sq.Ft:</p> <h4>{props.index.sqft}</h4></div>
             <div className="card-line"><p>Date:</p> <h4>{props.index.date}</h4></div>
             <div className="card-line"><p>Email:</p> <h4>{props.index.email}</h4></div>
             <button
@@ -115,7 +100,7 @@ const UserEvent = props => {
                     name="baths"
                     onChange={handleChange}
                     placeholder="Enter number here"
-                    value={input.bathNum}
+                    value={input.bath_number}
                 />
 
                 <label>Number of Beds</label>
@@ -124,7 +109,7 @@ const UserEvent = props => {
                     name="beds"
                     onChange={handleChange}
                     placeholder="Enter number here"
-                    value={input.bedNum}
+                    value={input.bed_number}
                 />
 
                 <label>Zipcode</label>
@@ -160,7 +145,7 @@ const UserEvent = props => {
                     name="square-footage"
                     onChange={handleChange}
                     placeholder="Enter number here"
-                    value={input.sqFt}
+                    value={input.sqft}
                 />
 
                 <label>Date</label>
@@ -186,3 +171,16 @@ const UserEvent = props => {
         </>
     );
 };
+
+const mapStateToProps = state => {
+    return {
+        user: state.user,
+        isLoading: state.isLoading,
+        error: state.error
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    { deleteItem, editItem }
+)(MyListingsCards);
