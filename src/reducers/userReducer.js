@@ -13,6 +13,7 @@ import {
 const initialState = {
     credentials: {
         username: "",
+        email: "",
         password: ""
     },
     isLoggedIn: false,

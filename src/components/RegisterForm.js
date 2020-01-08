@@ -1,7 +1,6 @@
 import React from 'react';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
 import {connect} from 'react-redux';
 import {register} from '../actions/register'
 
@@ -76,6 +75,7 @@ const FormikRegisterForm = withFormik({
     handleSubmit(values, {props, resetForm}) {
         props.register(values);
         resetForm();
+        
       }
 
 })(RegisterForm);
