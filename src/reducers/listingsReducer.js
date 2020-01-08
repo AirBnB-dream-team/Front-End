@@ -1,5 +1,6 @@
 import {
     UPDATING,
+    GET_SUCCESS,
     SUCCESS,
     FAILURE
 } from '../actions/listingsActions'
@@ -33,7 +34,13 @@ const listingsReducer = (state = initialState, action) => {
                 ...state,
                 isUpdating: true
             }
-        case SUCCESS : 
+        case GET_SUCCESS : 
+            return {
+                ...state,
+                listings: action.payload,
+                isUpdating: false
+            }
+            case SUCCESS : 
             return {
                 ...state,
                 listings: action.payload,

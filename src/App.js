@@ -7,24 +7,19 @@ import NavBar from './components/NavBar';
 import MyListings from './components/MyListingsPage';
 import NewListing from './components/NewListing';
 import { Route, Switch } from 'react-router-dom';
+import MyListingsPage from './components/MyListingsPage';
 
 function App() {
   return (
     <div className="App">
       <NavBar />
       <Switch>
-        <Route exact path='/login'>
-          <Login />
-        </Route>
-        <Route path='/register'>
-          <RegisterForm />
-        </Route>
-        <Route path='/logout'>
-          <Login />
-        </Route>
+        <Route exact path='/login' component={Login}/>
+        <Route path='/register' component={RegisterForm}/>  
+        <Route path='/my-listings' component={MyListings}/>
+        <Route path='/logout'/>
+        
       </Switch>
-      <MyListings />
-      <NewListing />
     </div>
   );
 }
