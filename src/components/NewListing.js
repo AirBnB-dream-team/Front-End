@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { withFormik, Form, Field} from 'formik';
+import { withFormik, Form, Field, connect} from 'formik';
 import * as Yup from 'yup';
 
 import axios from 'axios';
@@ -125,7 +125,7 @@ function NewListing(props){
                     <p className="error"> {errors.date}</p>)}
                 <button disabled={!values.bed_number || !values.bath_number}onClick={checkPrice}>Check Price</button>
                 
-                <button disabled={Object.getOwnPropertyNames(touched).length === 0|| !(Object.getOwnPropertyNames(errors).length === 0)}type="submit">Create Listing</button>
+                <button type="submit">Create Listing</button>
 
             </Form>
        
@@ -134,6 +134,8 @@ function NewListing(props){
 
     )
 }
+
+// disabled={Object.getOwnPropertyNames(touched).length === 0|| !(Object.getOwnPropertyNames(errors).length === 0)}type="submit"
 
 const FormikNewListing = withFormik({
     mapPropsToValues({ 
@@ -176,8 +178,8 @@ const FormikNewListing = withFormik({
     handleSubmit(values, {setStatus, resetForm}) {
         console.log("submitting! ", values);
         // This is just a placeholder api data.
-        axios.
-        post("https://reqres.in/api/users/", values)
+        axios
+        .post("https://reqres.in/api/users/", values)
         .then ( res => {
             console.log('Successfully submitted', values)
             setStatus(res.data)
@@ -187,4 +189,4 @@ const FormikNewListing = withFormik({
 
 })(NewListing);
 
-export default FormikNewListing;
+export default connect(null, {addListing})(Login);

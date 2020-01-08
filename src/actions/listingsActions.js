@@ -3,7 +3,9 @@ import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 export const UPDATING = 'UPDATING';
 export const GET_SUCCESS = 'GET_SUCCESS';
-export const SUCCESS = 'SUCCESS';
+export const ADD_SUCCESS = 'ADD_SUCCESS';
+export const UPDATE_SUCCESS = 'UPDATE_SUCCESS'
+export const DELETE_SUCCESS = 'DELETE_SUCCESS'
 export const FAILURE = 'FAILURE';
 
 export const getUserListings = (id) => dispatch => {
@@ -23,8 +25,8 @@ export const addListing = (info) => dispatch => {
     axios
         .post(`/api/${info.id}`, info)
         .then(res=>{
-            console.log('add listing res', res)
-            dispatch({type: SUCCESS, payload: res.data})
+            dispatch({type: ADD_SUCCESS, payload: res.data})
+            
         })
         .catch(err=>{
             dispatch({type: FAILURE, payload: err})
