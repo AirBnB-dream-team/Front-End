@@ -27,6 +27,7 @@ function NewListing(props){
        
             <Form className='new-listing'>
                 <Field
+
                    
                     name='bed_number' 
                     id='bedrooms'
@@ -37,6 +38,7 @@ function NewListing(props){
                     <p className="error"> {errors.bed_number}</p>
                 )}
                  <Field
+
                     
                     name='bath_number' 
                     id='bathrooms'

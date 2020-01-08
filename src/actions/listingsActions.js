@@ -2,7 +2,7 @@ import axios from 'axios';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 export const UPDATING = 'UPDATING';
-export const GET_SUCCESS = 'GET_LISTINGS_SUCCESS';
+export const GET_SUCCESS = 'GET_SUCCESS';
 export const SUCCESS = 'SUCCESS';
 export const FAILURE = 'FAILURE';
 
