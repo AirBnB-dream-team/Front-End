@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState }from 'react';
+import ListingEdit from './ListingEdit'
 
 
 
 const MyListingsCards = props => {
-
+    const [showModal, setShowModal] = useState(false)
     return (
         <div className="mylistings">
             <h1>{props.listing.address}</h1>
@@ -14,8 +15,14 @@ const MyListingsCards = props => {
             <p>Sq.Ft:</p> <h4>{props.listing.sqft}</h4>
             <p>Date:</p> <h4>{props.listing.date}</h4>
             <p>Email:</p> <h4>{props.listing.email}</h4>
+            <div>
+            <button onClick={()=> setShowModal(true)}>Edit</button>
+            <button>Delete</button>
+
+                { showModal ? <ListingEdit listing ={props.listing} showModal={showModal} setShowModal={()=> setShowModal(false)}/> : null}
+            </div>
             
-        </div>
-    );
+        </div>)
+        
 };
 export default MyListingsCards

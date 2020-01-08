@@ -9,9 +9,9 @@ import axios from 'axios';
 
 
 
-function NewListing(props){   
+function ListingEdit(props){   
    
-    const { values, touched, errors
+    const { values, touched, errors, setShowModal
           } = props;
 
           console.log('Errors: ',errors)
@@ -20,31 +20,31 @@ function NewListing(props){
 
     const checkPrice = (e) => {
         e.preventDefault();
-        console.log(`Bedrooms: ${values.bed_number} Bathrooms: ${values.bath_number}`)
+        console.log(`Bedrooms: ${values.bedrooms} Bathrooms: ${values.bathrooms}`)
 
     }
     return (
        
             <Form className='new-listing'>
                 <Field
-                   
-                    name='bed_number' 
+                    type='number'
+                    name='bedrooms' 
                     id='bedrooms'
                     placeholder="No. of Bedrooms"
                     value={values.bed_number}
                 />
-                {touched.bed_number && errors.bed_number && (
-                    <p className="error"> {errors.bed_number}</p>
+                {touched.bedrooms && errors.bedrooms && (
+                    <p className="error"> {errors.bedrooms}</p>
                 )}
                  <Field
-                    
-                    name='bath_number' 
+                    type='number'
+                    name='bathrooms' 
                     id='bathrooms'
                     placeholder="No. of bathrooms"
-                    value={values.bath_number}
+                    value={values.bathrooms}
                 />
-                {touched.bath_number && errors.bath_number && (
-                    <p className="error"> {errors.bath_number}</p>
+                {touched.bathrooms && errors.bathrooms && (
+                    <p className="error"> {errors.bathrooms}</p>
                 )}
 
                 <Field
@@ -113,7 +113,7 @@ function NewListing(props){
                     <p className="error"> {errors.email}</p>)}
 
                 <Field
-                    
+                    type="date"
                     name='date' 
                     id='date'
                     placeholder="date"
@@ -121,9 +121,9 @@ function NewListing(props){
                 />
                 {touched.date && errors.date && (
                     <p className="error"> {errors.date}</p>)}
-                <button disabled={!values.bed_number || !values.bath_number}onClick={checkPrice}>Check Price</button>
+                <button disabled={!values.bedrooms || !values.bathrooms}onClick={checkPrice}>Check Price</button>
                 
-                <button disabled={Object.getOwnPropertyNames(touched).length === 0|| !(Object.getOwnPropertyNames(errors).length === 0)}type="submit">Create Listing</button>
+                <button disabled={Object.getOwnPropertyNames(touched).length === 0|| !(Object.getOwnPropertyNames(errors).length === 0)}type="submit" onClick={setShowModal}>Save Listing</button>
 
             </Form>
        
@@ -133,10 +133,10 @@ function NewListing(props){
     )
 }
 
-const FormikNewListing = withFormik({
+const FormikListingEdit = withFormik({
     mapPropsToValues({ 
-        bed_number,
-        bath_number,
+        bedrooms,
+        bathrooms,
         zip,
         address,
         city,
@@ -147,8 +147,8 @@ const FormikNewListing = withFormik({
         date,
         }) {
         return {
-          bed_number: bed_number || "",
-          bath_number: bath_number || "",
+          bedrooms: bedrooms || "",
+          bathrooms: bathrooms || "",
           zip: zip || "",
           address: address || "",
           city: city || "",
@@ -161,14 +161,14 @@ const FormikNewListing = withFormik({
         };
     },
     validationSchema: Yup.object().shape({
-        bedrooms:Yup.string().required("Bedrooms required"),
-        bathrooms:Yup.string().required("Bathrooms required"),
+        bedrooms:Yup.number().min(0).required("Bedrooms required"),
+        bathrooms:Yup.number().min(0).required("Bathrooms required"),
         zip: Yup.string().required("Zip Required").test('len', 'Must be exactly 5 characters', val => val && val.toString().length === 5),
         address:Yup.string().required('Address Required'),
         city:Yup.string().required('City Required'),
-        price:Yup.string().required('Price Required'),
+        price:Yup.number().required('Price Required'),
         email: Yup.string().email('Invalid Email Address').required('Email required'),
-        date: Yup.string().required('Date Required')
+        date: Yup.date().min(new Date()).required('Date Required')
 
     }),
     handleSubmit(values, {setStatus, resetForm}) {
@@ -183,6 +183,6 @@ const FormikNewListing = withFormik({
         })
       }
 
-})(NewListing);
+})(ListingEdit);
 
-export default FormikNewListing;
+export default FormikListingEdit;
