@@ -119,6 +119,7 @@ function Edit(props){
             <div className="editmodal-btns">
                 <button className="modal-btn" disabled={!values.bed_number || !values.bath_number || !values.zip}onClick={checkPrice}>Check Price</button>
                 <button className="modal-btn" disabled={!(Object.getOwnPropertyNames(errors).length === 0)}type="submit" >Save Listing</button>
+                <button className="modal-btn" onClick={()=>{props.setShowModal(false)}}>Cancel</button>
             </div>
         </Form>
     )
