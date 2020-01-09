@@ -1,23 +1,23 @@
 import React, { useState }from 'react';
-import ListingEdit from './ListingEdit'
+import ListingEdit from './ListingEdit';
 
 
 const MyListingsCards = props => {
     const [showModal, setShowModal] = useState(false)
+    {console.log(props)}
     return (
-        <div className="mylistings">
-            <h1>{props.listing.address}</h1>
-
-            <span><h3>{props.listing.city}, {props.listing.state} {props.listing.zip}</h3></span>
-            <span><p>Price:</p> <h4>{props.listing.price}</h4></span>
-            <span><p>Baths:</p> <h4>{props.listing.bath_number}</h4></span>
-            <span><p>Beds:</p> <h4>{props.listing.bed_number}</h4></span>
-            <span><p>Sq.Ft:</p> <h4>{props.listing.sqft}</h4></span>
-            <span><p>Date:</p> <h4>{props.listing.date}</h4></span>
-            <span><p>Email:</p> <h4>{props.listing.email}</h4></span>
+        <div className="individual-card">
+            <h1>$<span className="card-price">{props.listing.price}</span></h1>
+            <h3>{props.listing.address}</h3>
+            <h3 className="card-city-state">{props.listing.city}, {props.listing.state} {props.listing.zip}</h3>
+            <p>Baths: <span>{props.listing.bath_number}</span></p>
+            <p>Beds: <span>{props.listing.bed_number}</span></p>
+            <p>Sq.Ft: <span>{props.listing.sqft}</span></p>
+            <p>Date: <span>{props.listing.date}</span></p>
+            <p>Email: <span>{props.listing.email}</span></p>
             <div>
-              <button onClick={()=> setShowModal(true)}>Edit</button>
-              <button>Delete</button>
+                <button className="card-btn" onClick={()=> setShowModal(true)}>Edit</button>
+                <button className="card-btn">Delete</button>
 
                 { showModal ? <ListingEdit listing ={props.listing} showModal={showModal} setShowModal={()=> setShowModal(false)}/> : null}
             </div>
