@@ -23,7 +23,10 @@ function NewListing(props){
     }
     return (
        
-            <Form className='new-listing'>
+            <Form className='new-form'>
+                <div className='label'>
+                    <label htmlFor="bed_number">Bedrooms</label>
+                </div>
                 <Field
 
                    
@@ -33,8 +36,12 @@ function NewListing(props){
                     value={values.bed_number}
                 />
                 {touched.bed_number && errors.bed_number && (
-                    <p className="error"> {errors.bed_number}</p>
+                    <p className="errors"> {errors.bed_number}</p>
                 )}
+                <div className='label'>
+                    <label htmlFor="bath_number">Bathrooms</label>
+                </div>
+                
                  <Field
 
                     
@@ -44,9 +51,11 @@ function NewListing(props){
                     value={values.bath_number}
                 />
                 {touched.bath_number && errors.bath_number && (
-                    <p className="error"> {errors.bath_number}</p>
+                    <p className="errors"> {errors.bath_number}</p>
                 )}
-
+                <div className='label'>
+                    <label htmlFor="zip">Zip Code</label>
+                </div>
                 <Field
                     
                     name='zip' 
@@ -55,9 +64,11 @@ function NewListing(props){
                     value={values.zip}
                 />
                 {touched.zip && errors.zip && (
-                    <p className="error"> {errors.zip}</p>
+                    <p className="errors"> {errors.zip}</p>
                 )}
-
+                <div className='label'>
+                    <label htmlFor="address">Street Address</label>
+                </div>
                 <Field
                     name='address' 
                     id='address'
@@ -65,8 +76,10 @@ function NewListing(props){
                     value={values.address}
                 />
                 {touched.address && errors.address && (
-                    <p className="error"> {errors.address}</p>)}
-
+                    <p className="errors"> {errors.address}</p>)}
+                <div className='label'>
+                    <label htmlFor="city">City</label>
+                </div>
                 <Field
                     name='city' 
                     id='city'
@@ -75,8 +88,10 @@ function NewListing(props){
                 />
                 
                 {touched.city && errors.city && (
-                    <p className="error"> {errors.city}</p>)}
-
+                    <p className="errors"> {errors.city}</p>)}
+                <div className='label'>
+                    <label htmlFor="state">State</label>
+                </div>
                 <Field
                     name='state' 
                     id='state'
@@ -84,7 +99,10 @@ function NewListing(props){
                     value={values.state}
                 />
                 {touched.state && errors.state && (
-                    <p className="error"> {errors.state}</p>)}
+                    <p className="errors"> {errors.state}</p>)}
+                <div className='label'>
+                    <label htmlFor="price">Price</label>
+                </div>
                 <Field
                     name='price' 
                     id='price'
@@ -92,8 +110,10 @@ function NewListing(props){
                     value={values.price}
                 />
                 {touched.price && errors.price && (
-                    <p className="error"> {errors.price}</p>)}
-
+                    <p className="errors"> {errors.price}</p>)}
+                <div className='label'>
+                    <label htmlFor="sqft">Sqft</label>
+                </div>
                 <Field
                     name='sqft' 
                     id='sqft'
@@ -102,7 +122,10 @@ function NewListing(props){
                 />
 
                 {touched.sqft && errors.sqft && (
-                    <p className="error"> {errors.sqft}</p>)}
+                    <p className="errors"> {errors.sqft}</p>)}
+                <div className='label'>
+                    <label htmlFor="email">Email</label>
+                </div>
                 <Field
                     name='email' 
                     id='email'
@@ -110,8 +133,10 @@ function NewListing(props){
                     value={values.email}
                 />
                 {touched.email && errors.email && (
-                    <p className="error"> {errors.email}</p>)}
-
+                    <p className="errors"> {errors.email}</p>)}
+                <div className='label'>
+                    <label htmlFor="date">Date</label>
+                </div>
                 <Field
                     
                     name='date' 
@@ -120,10 +145,13 @@ function NewListing(props){
                     value={values.date}
                 />
                 {touched.date && errors.date && (
-                    <p className="error"> {errors.date}</p>)}
-                <button disabled={!values.bed_number || !values.bath_number}onClick={checkPrice}>Check Price</button>
+                    <p className="errors"> {errors.date}</p>)}
                 
-                <button disabled={Object.getOwnPropertyNames(touched).length === 0|| !(Object.getOwnPropertyNames(errors).length === 0)}type="submit">Create Listing</button>
+                <div className="editmodal-btns">
+                    <button disabled={!values.bed_number || !values.bath_number}onClick={checkPrice}className="new-btn">Check Price</button>
+                    
+                    <button disabled={Object.getOwnPropertyNames(touched).length === 0|| !(Object.getOwnPropertyNames(errors).length === 0)}type="submit" className="new-btn">Create Listing</button>
+                </div>
 
             </Form>
        

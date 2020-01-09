@@ -1,20 +1,14 @@
 * {
   
   box-sizing: border-box;
-  font-size:62.5%;
+  font-size: 62.5%;
   font-family: 'Montserrat', sans-serif;
   
 }
 
-body {
-  font-size: 1.4rem;
-  height: 100vh;
-  background-color: #f3f3f3;
-}
-
 .App {
   text-align: center;
-  
+  background-color: #f3f3f3;
   
 }
 
@@ -34,7 +28,7 @@ h4 {
   font-size: 1.8rem;
 }
 
-label, p {
+p {
   font-size: 1.4rem;
 }
 
@@ -152,7 +146,6 @@ nav a:hover {
 .card-btn-container {
   display: flex;
   justify-content: center;
-  flex-wrap:wrap;
 }
 
 .card-btn {
@@ -164,8 +157,7 @@ nav a:hover {
   border-radius: 5px;
   background-color: #e8d4b4;
   color: black;
-  margin: 5% 5%;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.125);
+  
   transition: all 0.3s ease 0s;
   cursor: pointer;
   outline: none;
@@ -195,9 +187,7 @@ nav a:hover {
   border: black 1px solid;
 }
 
-
-
-.edit-form input,.new-form input {
+.edit-form input {
   font-size: 1.5rem;
   width: 95%;
   margin: 10px auto;
@@ -207,7 +197,6 @@ nav a:hover {
 .editmodal-btns {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
 .modal-btn {
@@ -230,47 +219,6 @@ nav a:hover {
   background-color: #ff896b;
   color: white;
 }
-/* New listing form styling */
-
-.new-form {
-  margin: 60px auto;
-  padding: 2% 3%;
-  border: 1px solid black;
-  background-color: #ebe6e6;
-  border-radius: 10px;
-  box-shadow: 0 10px 10px -5px;
-
-  width: 50%;
-  justify-content: center;
-  align-items: center;
-  border: black 1px solid;
-}
-
-.new-btn {
-  width: 180px;
-  font-size: 1.4rem;
-  text-transform: uppercase;
-  padding: 7px 5px;
-  border: 1.5px solid #ff896b;
-  border-radius: 5px;
-  background-color: #e8d4b4;
-  color: black;
-  margin: 5% 2% 5% 0;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.125);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  outline: none;
-}
-
-.new-btn:hover {
-  background-color: #ff896b;
-  color: white;
-}
-
-.label {
-  text-align:left;
-  margin-left:4%;
-}
 
 /* Footer styling */
 
@@ -283,10 +231,6 @@ nav a:hover {
   padding: 1.2% 0;
   margin-top: 3%;
   margin-bottom: 0;
-  position:absolute;
-  bottom:0;
-  width:100%;
-  
 }
 
 footer p {
@@ -302,16 +246,14 @@ footer p a {
 /* errors */
 .errors {
   color: red;
-  margin-left: 3%;
 }
 
 /* Registration styling */
 .register, .login { 
-  border: 1px solid #ebe6e6;
+  border: 1px ebe6e6;
   width: 30%;
   padding:20px;
   margin: 25vh auto;
-  box-shadow: 0 10px 10px -5px;
 }
 .registration-form, .login-form {
   width: 100%;
@@ -345,7 +287,6 @@ footer p a {
 }
 
 
-
 /* registration responsive css */
 @media only screen and (max-width: 500px) {
   .register,.login {
@@ -359,4 +300,3 @@ footer p a {
   background-color: #e8d4b4;
   border: 1px solid black;
 }
-

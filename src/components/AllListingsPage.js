@@ -1,3 +1,4 @@
+
 import React, {useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import AllListingsCards from './AllListingsCards';
@@ -24,13 +25,13 @@ const AllListings = props => {
                 
             </div>
             <div className="mylistings-cards">
-                
+
                 {props.listings.map(val=>(
                     <div>
                         <AllListingsCards key={val.id} listing={val}/>
                     </div>
                 ))}
-                
+
             </div>
         </div>
     );

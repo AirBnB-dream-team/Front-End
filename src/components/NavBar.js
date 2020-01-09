@@ -1,12 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
-
-const StyledNav = styled.nav`
-    display:flex;
-    justify-content:space-around;
-    text-decoration: none;
-`;
 
 const clearLocalStorage = () => {
     localStorage.clear()
@@ -14,8 +7,12 @@ const clearLocalStorage = () => {
 
 function NavBar(){
     return (
-        <header>
-            <StyledNav>
+
+        <header className="navbar">
+            <div className="logo-container">
+                <img className="logo" src="https://avatars3.githubusercontent.com/u/59102222?s=200&v=4" alt="BnB logo" />
+            </div>
+            <nav>
                 <NavLink to={`/my-listings/${localStorage.getItem("id")}`}>My Listings</NavLink>
                 <NavLink to={`/all-listings/${localStorage.getItem("id")}`}>All Listings</NavLink>
                 {localStorage.getItem('id') ? (<NavLink onClick={()=>{clearLocalStorage()}} to="/login">Logout</NavLink>) : null}
@@ -24,7 +21,8 @@ function NavBar(){
                 {/* (<NavLink to="/login">Login</NavLink>) */}
                 
                 
-            </StyledNav>
+            </nav>
+
         </header>
     )
 }

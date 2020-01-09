@@ -19,6 +19,7 @@ function Edit(props){
 
           
 
+
           const checkPrice = (e) => {
             e.preventDefault();
             console.log(props)
