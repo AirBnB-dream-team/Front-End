@@ -27,34 +27,49 @@ export const addListing = (id, info) => dispatch => {
         .post(`/api/${id}`, info)
         .then(res=>{
             dispatch({type: ADD_SUCCESS, payload: res.data})
-            history.push(`/my-listings/${res.data.id}`)
+            history.push(`/my-listings/${id}`)
         })
         .catch(err=>{
             dispatch({type: FAILURE, payload: err})
         })
 }
 
-export const deleteListing = listingId => dispatch => {
+export const deleteListing = (id, userId) => dispatch => {
     dispatch({type: UPDATING})
-    axios
-        .delete(`/api/${listingId}`)
-        .then(res=>{
-            console.log('delete listing res', res)
-            dispatch({type: DELETE_SUCCESS, payload: res})
-        })
-        .catch(err=>{
-            dispatch({type: FAILURE, payload: err})
-        })
-}
-
-export const updateListing = (info) => dispatch => {
-    dispatch({type: UPDATING})
-    axios
-        .put(`/api/${info.id}`, info)
+    axiosWithAuth()
+        .put(`/api/${id}`)
         .then(res=>{
             console.log('update listing res', res)
-            dispatch({type: UPDATE_SUCCESS, payload: res})
+            dispatch({type: DELETE_SUCCESS})
+            axiosWithAuth()
+                .get(`/api/${userId}`)
+                .then(res=>{
+                    dispatch({type: GET_SUCCESS, payload: res.data})
+                })
+                .catch(err=>{
+                    dispatch({type: FAILURE, payload: res})
+                })
+        })
+        .catch(err=>{
+            dispatch({type: FAILURE, payload: err})
+        })
+}
 
+export const updateListing = (id, info, userId) => dispatch => {
+    dispatch({type: UPDATING})
+    axiosWithAuth()
+        .put(`/api/${id}`, info)
+        .then(res=>{
+            console.log('update listing res', res)
+            dispatch({type: UPDATE_SUCCESS})
+            axiosWithAuth()
+                .get(`/api/${userId}`)
+                .then(res=>{
+                    dispatch({type: GET_SUCCESS, payload: res.data})
+                })
+                .catch(err=>{
+                    dispatch({type: FAILURE, payload: res})
+                })
         })
         .catch(err=>{
             dispatch({type: FAILURE, payload: err})

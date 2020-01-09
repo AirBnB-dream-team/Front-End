@@ -85,6 +85,16 @@ const initialState = {
                 listings: action.payload,
                 isUpdating: false
             }
+            case UPDATE_SUCCESS : 
+            return {
+                ...state,
+                isUpdating: false
+            }
+            case DELETE_SUCCESS : 
+            return {
+                ...state,
+                isUpdating: false
+            }
         case FAILURE: 
             return {
                 ...state,
