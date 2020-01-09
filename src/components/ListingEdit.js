@@ -26,6 +26,10 @@ function ListingEdit(props){
     return (
        
             <Form className='edit-form'>
+                <div className='label'>
+                    <label htmlFor="bed_number">Bedrooms</label>
+                </div>
+                
                 <Field
                     type='number'
                     name='bedrooms' 
@@ -36,6 +40,9 @@ function ListingEdit(props){
                 {touched.bedrooms && errors.bedrooms && (
                     <p className="errors"> {errors.bedrooms}</p>
                 )}
+                <div className='label'>
+                    <label htmlFor="bath_number">Bathrooms</label>
+                </div>
                  <Field
                     type='number'
                     name='bathrooms' 
@@ -46,7 +53,9 @@ function ListingEdit(props){
                 {touched.bathrooms && errors.bathrooms && (
                     <p className="errors"> {errors.bathrooms}</p>
                 )}
-
+                <div className='label'>
+                    <label htmlFor="zip">Zip Code</label>
+                </div>
                 <Field
                     
                     name='zip' 
@@ -57,7 +66,9 @@ function ListingEdit(props){
                 {touched.zip && errors.zip && (
                     <p className="errors"> {errors.zip}</p>
                 )}
-
+                <div className='label'>
+                    <label htmlFor="address">Street Address</label>
+                </div>
                 <Field
                     name='address' 
                     id='address'
@@ -66,7 +77,9 @@ function ListingEdit(props){
                 />
                 {touched.address && errors.address && (
                     <p className="errors"> {errors.address}</p>)}
-
+                <div className='label'>
+                    <label htmlFor="city">City</label>
+                </div>
                 <Field
                     name='city' 
                     id='city'
@@ -76,7 +89,9 @@ function ListingEdit(props){
                 
                 {touched.city && errors.city && (
                     <p className="errors"> {errors.city}</p>)}
-
+                <div className='label'>
+                    <label htmlFor="state">State</label>
+                </div>
                 <Field
                     name='state' 
                     id='state'
@@ -85,6 +100,9 @@ function ListingEdit(props){
                 />
                 {touched.state && errors.state && (
                     <p className="errors"> {errors.state}</p>)}
+                <div className='label'>
+                    <label htmlFor="price">Price</label>
+                </div>
                 <Field
                     name='price' 
                     id='price'
@@ -93,7 +111,9 @@ function ListingEdit(props){
                 />
                 {touched.price && errors.price && (
                     <p className="errors"> {errors.price}</p>)}
-
+                <div className='label'>
+                    <label htmlFor="sqft">Sqft</label>
+                </div>
                 <Field
                     name='sqft' 
                     id='sqft'
@@ -103,6 +123,9 @@ function ListingEdit(props){
 
                 {touched.sqft && errors.sqft && (
                     <p className="errors"> {errors.sqft}</p>)}
+                <div className='label'>
+                    <label htmlFor="email">Email</label>
+                </div>
                 <Field
                     name='email' 
                     id='email'
@@ -111,7 +134,9 @@ function ListingEdit(props){
                 />
                 {touched.email && errors.email && (
                     <p className="errors"> {errors.email}</p>)}
-
+                <div className='label'>
+                    <label htmlFor="date">Date</label>
+                </div>
                 <Field
                     type="date"
                     name='date' 
