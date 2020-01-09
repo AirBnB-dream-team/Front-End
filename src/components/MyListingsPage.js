@@ -20,22 +20,19 @@ const MyListings = props => {
             <div className="mylistings-header">
                 <h2>User's Listings</h2>
                 <div className="new-listing-btn">
-                    <Link to={`/new-listing/${props.match.params.id}`}>
+                    <Link to={`/new-listing/${props.match.params.id}`} className="new-listing-link">
                         New Listing
                     </Link>
                 </div>
             </div>
             <div className="mylistings-cards">
-                <p>listing cards</p>
                 {props.listings.map(val=>{
                     return (
-                        <div>
+                        <>
                             <MyListingsCards key={val.id} listing={val}/>
-                        </div>
+                        </>
                     )
                 })}
-                
-                
             </div>
         </div>
     );

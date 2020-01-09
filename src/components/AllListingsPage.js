@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import AllListingsCards from './AllListingsCards';
 import { connect } from "react-redux";
 
@@ -19,13 +18,11 @@ const AllListings = props => {
                 
             </div>
             <div className="mylistings-cards">
-                
-                {/* {props.listings.map(val=>(
+                {props.listings.map(val=>(
                     <div>
                         <AllListingsCards key={val.id} listing={val}/>
                     </div>
-                ))} */}
-                
+                ))}
             </div>
         </div>
     );

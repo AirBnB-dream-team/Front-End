@@ -25,7 +25,7 @@ function ListingEdit(props){
     }
     return (
        
-            <Form className='new-listing'>
+            <Form className='edit-form'>
                 <Field
                     type='number'
                     name='bedrooms' 
@@ -121,10 +121,10 @@ function ListingEdit(props){
                 />
                 {touched.date && errors.date && (
                     <p className="error"> {errors.date}</p>)}
-                <button disabled={!values.bedrooms || !values.bathrooms}onClick={checkPrice}>Check Price</button>
-                
-                <button disabled={Object.getOwnPropertyNames(touched).length === 0|| !(Object.getOwnPropertyNames(errors).length === 0)}type="submit" onClick={setShowModal}>Save Listing</button>
-
+                <div className="editmodal-btns">
+                    <button className="modal-btn" disabled={!values.bedrooms || !values.bathrooms} onClick={checkPrice}>Check Price</button>
+                    <button className="modal-btn" disabled={Object.getOwnPropertyNames(touched).length === 0|| !(Object.getOwnPropertyNames(errors).length === 0)} type="submit" onClick={setShowModal}>Save Listing</button>
+                </div>
             </Form>
        
             
