@@ -26,6 +26,9 @@ function NewListing(props){
     return (
        
             <Form className='new-form'>
+                <div className='label'>
+                    <label htmlFor="bed_number">Bedrooms</label>
+                </div>
                 <Field
 
                    
@@ -37,6 +40,10 @@ function NewListing(props){
                 {touched.bed_number && errors.bed_number && (
                     <p className="errors"> {errors.bed_number}</p>
                 )}
+                <div className='label'>
+                    <label htmlFor="bath_number">Bathrooms</label>
+                </div>
+                
                  <Field
 
                     
@@ -48,7 +55,9 @@ function NewListing(props){
                 {touched.bath_number && errors.bath_number && (
                     <p className="errors"> {errors.bath_number}</p>
                 )}
-
+                <div className='label'>
+                    <label htmlFor="zip">Zip Code</label>
+                </div>
                 <Field
                     
                     name='zip' 
@@ -59,7 +68,9 @@ function NewListing(props){
                 {touched.zip && errors.zip && (
                     <p className="errors"> {errors.zip}</p>
                 )}
-
+                <div className='label'>
+                    <label htmlFor="address">Street Address</label>
+                </div>
                 <Field
                     name='address' 
                     id='address'
@@ -68,7 +79,9 @@ function NewListing(props){
                 />
                 {touched.address && errors.address && (
                     <p className="errors"> {errors.address}</p>)}
-
+                <div className='label'>
+                    <label htmlFor="city">City</label>
+                </div>
                 <Field
                     name='city' 
                     id='city'
@@ -78,7 +91,9 @@ function NewListing(props){
                 
                 {touched.city && errors.city && (
                     <p className="errors"> {errors.city}</p>)}
-
+                <div className='label'>
+                    <label htmlFor="state">State</label>
+                </div>
                 <Field
                     name='state' 
                     id='state'
@@ -87,6 +102,9 @@ function NewListing(props){
                 />
                 {touched.state && errors.state && (
                     <p className="errors"> {errors.state}</p>)}
+                <div className='label'>
+                    <label htmlFor="price">Price</label>
+                </div>
                 <Field
                     name='price' 
                     id='price'
@@ -95,7 +113,9 @@ function NewListing(props){
                 />
                 {touched.price && errors.price && (
                     <p className="errors"> {errors.price}</p>)}
-
+                <div className='label'>
+                    <label htmlFor="sqft">Sqft</label>
+                </div>
                 <Field
                     name='sqft' 
                     id='sqft'
@@ -105,6 +125,9 @@ function NewListing(props){
 
                 {touched.sqft && errors.sqft && (
                     <p className="errors"> {errors.sqft}</p>)}
+                <div className='label'>
+                    <label htmlFor="email">Email</label>
+                </div>
                 <Field
                     name='email' 
                     id='email'
@@ -113,7 +136,9 @@ function NewListing(props){
                 />
                 {touched.email && errors.email && (
                     <p className="errors"> {errors.email}</p>)}
-
+                <div className='label'>
+                    <label htmlFor="date">Date</label>
+                </div>
                 <Field
                     
                     name='date' 
