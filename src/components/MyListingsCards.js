@@ -16,10 +16,12 @@ const MyListingsCards = props => {
             <span><p>Date:</p> <h4>{props.listing.date}</h4></span>
             <span><p>Email:</p> <h4>{props.listing.email}</h4></span>
             <div>
-              <button onClick={()=> setShowModal(true)}>Edit</button>
-              <button>Delete</button>
+              <button onClick={()=> setShowModal(!showModal)}>Edit</button>
+              <button onClick={()=>{
+                  console.log('click', props.deleteListing(props.listing.id, props.listing.planner_id))
+              }}>Delete</button>
 
-                { showModal ? <ListingEdit listing ={props.listing} showModal={showModal} setShowModal={()=> setShowModal(false)}/> : null}
+                { showModal ? <ListingEdit listing ={props.listing} listingId={props.listing.id} setShowModal={setShowModal}/> : null}
             </div>
         </div>
     );

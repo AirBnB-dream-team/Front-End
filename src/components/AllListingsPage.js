@@ -1,17 +1,22 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import AllListingsCards from './AllListingsCards';
 import { connect } from "react-redux";
 
 import {
     getUserListings,
+    getAllListings,
     addListing,
     deleteListing,
     updateListing
 } from '../actions/listingsActions'
 
 const AllListings = props => {
-    props.getUserListings();
+
+    useEffect(()=>{
+        props.getAllListings(props.match.params.id);
+    },[])
+
     return (
         <div className="mylistings-page">
             <div className="mylistings-header">
@@ -20,11 +25,11 @@ const AllListings = props => {
             </div>
             <div className="mylistings-cards">
                 
-                {/* {props.listings.map(val=>(
+                {props.listings.map(val=>(
                     <div>
                         <AllListingsCards key={val.id} listing={val}/>
                     </div>
-                ))} */}
+                ))}
                 
             </div>
         </div>
@@ -43,6 +48,7 @@ export default connect(
     mapStateToProps,
     {
         getUserListings,
+        getAllListings,
         addListing,
         deleteListing,
         updateListing

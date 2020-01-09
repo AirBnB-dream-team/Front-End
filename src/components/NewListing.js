@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 
-import axios from 'axios';
+import {connect} from 'react-redux';
+import {addListing} from '../actions/listingsActions'
 
 
 
@@ -13,14 +14,11 @@ function NewListing(props){
    
     const { values, touched, errors
           } = props;
-
-          console.log('Errors: ',errors)
-          console.log('Touched: ',touched)
           
 
     const checkPrice = (e) => {
         e.preventDefault();
-        console.log(`Bedrooms: ${values.bed_number} Bathrooms: ${values.bath_number}`)
+        console.log(props)
 
     }
     return (
@@ -173,18 +171,11 @@ const FormikNewListing = withFormik({
         date: Yup.string().required('Date Required')
 
     }),
-    handleSubmit(values, {setStatus, resetForm}) {
-        console.log("submitting! ", values);
-        // This is just a placeholder api data.
-        axios.
-        post("https://reqres.in/api/users/", values)
-        .then ( res => {
-            console.log('Successfully submitted', values)
-            setStatus(res.data)
-            resetForm();
-        })
+    handleSubmit(values, {props, resetForm}) {
+        props.addListing(props.match.params.id, values);
+        resetForm();
       }
 
 })(NewListing);
 
-export default FormikNewListing;
+export default connect(null, {addListing})(FormikNewListing);

@@ -63,4 +63,3 @@ const Login = withFormik({
 })(LoginForm);
 
 export default connect(null, {login})(Login);
-
