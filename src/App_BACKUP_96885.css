@@ -1,13 +1,9 @@
 * {
   
   box-sizing: border-box;
-  font-size:62.5%;
+  font-size: 62.5%;
   font-family: 'Montserrat', sans-serif;
   
-}
-
-body {
-  font-size: 1.4rem;
 }
 
 .App {
@@ -32,7 +28,7 @@ h4 {
   font-size: 1.8rem;
 }
 
-label, p {
+p {
   font-size: 1.4rem;
 }
 
@@ -161,8 +157,7 @@ nav a:hover {
   border-radius: 5px;
   background-color: #e8d4b4;
   color: black;
-  margin: 5% 5%;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.125);
+  
   transition: all 0.3s ease 0s;
   cursor: pointer;
   outline: none;
@@ -191,8 +186,6 @@ nav a:hover {
   align-items: center;
   border: black 1px solid;
 }
-
-
 
 .edit-form input {
   font-size: 1.5rem;
@@ -253,16 +246,14 @@ footer p a {
 /* errors */
 .errors {
   color: red;
-  margin-left: 3%;
 }
 
 /* Registration styling */
 .register, .login { 
-  border: 1px solid #ebe6e6;
+  border: 1px ebe6e6;
   width: 30%;
   padding:20px;
   margin: 25vh auto;
-  box-shadow: 0 10px 10px -5px;
 }
 .registration-form, .login-form {
   width: 100%;

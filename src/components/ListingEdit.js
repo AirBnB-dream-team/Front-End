@@ -34,7 +34,7 @@ function ListingEdit(props){
                     value={values.bed_number}
                 />
                 {touched.bedrooms && errors.bedrooms && (
-                    <p className="error"> {errors.bedrooms}</p>
+                    <p className="errors"> {errors.bedrooms}</p>
                 )}
                  <Field
                     type='number'
@@ -44,7 +44,7 @@ function ListingEdit(props){
                     value={values.bathrooms}
                 />
                 {touched.bathrooms && errors.bathrooms && (
-                    <p className="error"> {errors.bathrooms}</p>
+                    <p className="errors"> {errors.bathrooms}</p>
                 )}
 
                 <Field
@@ -55,7 +55,7 @@ function ListingEdit(props){
                     value={values.zip}
                 />
                 {touched.zip && errors.zip && (
-                    <p className="error"> {errors.zip}</p>
+                    <p className="errors"> {errors.zip}</p>
                 )}
 
                 <Field
@@ -65,7 +65,7 @@ function ListingEdit(props){
                     value={values.address}
                 />
                 {touched.address && errors.address && (
-                    <p className="error"> {errors.address}</p>)}
+                    <p className="errors"> {errors.address}</p>)}
 
                 <Field
                     name='city' 
@@ -75,7 +75,7 @@ function ListingEdit(props){
                 />
                 
                 {touched.city && errors.city && (
-                    <p className="error"> {errors.city}</p>)}
+                    <p className="errors"> {errors.city}</p>)}
 
                 <Field
                     name='state' 
@@ -84,7 +84,7 @@ function ListingEdit(props){
                     value={values.state}
                 />
                 {touched.state && errors.state && (
-                    <p className="error"> {errors.state}</p>)}
+                    <p className="errors"> {errors.state}</p>)}
                 <Field
                     name='price' 
                     id='price'
@@ -92,7 +92,7 @@ function ListingEdit(props){
                     value={values.price}
                 />
                 {touched.price && errors.price && (
-                    <p className="error"> {errors.price}</p>)}
+                    <p className="errors"> {errors.price}</p>)}
 
                 <Field
                     name='sqft' 
@@ -102,7 +102,7 @@ function ListingEdit(props){
                 />
 
                 {touched.sqft && errors.sqft && (
-                    <p className="error"> {errors.sqft}</p>)}
+                    <p className="errors"> {errors.sqft}</p>)}
                 <Field
                     name='email' 
                     id='email'
@@ -110,7 +110,7 @@ function ListingEdit(props){
                     value={values.email}
                 />
                 {touched.email && errors.email && (
-                    <p className="error"> {errors.email}</p>)}
+                    <p className="errors"> {errors.email}</p>)}
 
                 <Field
                     type="date"
@@ -120,7 +120,7 @@ function ListingEdit(props){
                     value={values.date}
                 />
                 {touched.date && errors.date && (
-                    <p className="error"> {errors.date}</p>)}
+                    <p className="errors"> {errors.date}</p>)}
                 <div className="editmodal-btns">
                     <button className="modal-btn" disabled={!values.bedrooms || !values.bathrooms} onClick={checkPrice}>Check Price</button>
                     <button className="modal-btn" disabled={Object.getOwnPropertyNames(touched).length === 0|| !(Object.getOwnPropertyNames(errors).length === 0)} type="submit" onClick={setShowModal}>Save Listing</button>
