@@ -15,12 +15,11 @@ const MyListingsCards = props => {
             <p>Sq.Ft: <span>{props.listing.sqft}</span></p>
             <p>Date: <span>{props.listing.date}</span></p>
             <p>Email: <span>{props.listing.email}</span></p>
-            <div>
+            <div className="card-btn-container">
                 <button className="card-btn" onClick={()=> setShowModal(true)}>Edit</button>
                 <button className="card-btn">Delete</button>
-
-                { showModal ? <ListingEdit listing ={props.listing} showModal={showModal} setShowModal={()=> setShowModal(false)}/> : null}
             </div>
+            { showModal ? <ListingEdit listing ={props.listing} showModal={showModal} setShowModal={()=> setShowModal(false)}/> : null}
         </div>
     );
 
