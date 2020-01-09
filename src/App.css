@@ -14,8 +14,6 @@ body {
 
 .App {
   text-align: center;
-  
-  
 }
 
 h1 {
@@ -48,7 +46,6 @@ span {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: #e8d4b4; */
   background: rgb(2,0,36);
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(232,212,180,1) 0%, rgba(246,160,122,0.9836309523809523) 67%, rgba(255,137,107,1) 100%);
   border-bottom-right-radius: 5px;
@@ -66,7 +63,7 @@ span {
 }
 
 nav {
-  width: 70%;
+  width: 50%;
 }
 
 nav a {
@@ -189,19 +186,19 @@ nav a:hover {
   top: 20px;
   z-index: 1;
   animation: fadeIn 2s;
-  width: 35%;
-  justify-content: center;
-  align-items: center;
+  width: 30%;
   border: black 1px solid;
 }
 
-
-
 .edit-form input,.new-form input {
   font-size: 1.5rem;
-  width: 95%;
+  width: 100%;
   margin: 10px auto;
-  margin-left: 3%;
+  padding-left: 5px;
+}
+
+.edit-form label {
+  margin-left: 2px;
 }
 
 .editmodal-btns {
@@ -223,31 +220,33 @@ nav a:hover {
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.125);
   transition: all 0.3s ease 0s;
   cursor: pointer;
-  outline: none;
 }
 
 .modal-btn:hover {
   background-color: #ff896b;
   color: white;
 }
+
 /* New listing form styling */
 
 .new-form {
   margin: 60px auto;
-  padding: 2% 3%;
+  padding: 3% 3% 1.5% 3%;
   border: 1px solid black;
   background-color: #ebe6e6;
   border-radius: 10px;
   box-shadow: 0 10px 10px -5px;
-
   width: 50%;
-  justify-content: center;
-  align-items: center;
   border: black 1px solid;
+  text-align: left;
+}
+
+.new-form label {
+  margin-left: 2px;
 }
 
 .new-btn {
-  width: 180px;
+  width: 160px;
   font-size: 1.4rem;
   text-transform: uppercase;
   padding: 7px 5px;
@@ -255,11 +254,10 @@ nav a:hover {
   border-radius: 5px;
   background-color: #e8d4b4;
   color: black;
-  margin: 5% 2% 5% 0;
+  margin: 5% 2% 5% 2%;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.125);
   transition: all 0.3s ease 0s;
   cursor: pointer;
-  outline: none;
 }
 
 .new-btn:hover {
@@ -267,26 +265,17 @@ nav a:hover {
   color: white;
 }
 
-.label {
-  text-align:left;
-  margin-left:4%;
-}
-
 /* Footer styling */
 
 .footer {
-  /* background-color: #e8d4b4; */
   background: rgb(2,0,36);
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(232,212,180,1) 0%, rgba(246,160,122,0.9836309523809523) 50%, rgba(255,137,107,1) 100%);
   border-top-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
   padding: 1.2% 0;
   margin-top: 3%;
-  margin-bottom: 0;
-  position:absolute;
   bottom:0;
   width:100%;
-  
 }
 
 footer p {
@@ -300,38 +289,39 @@ footer p a {
 }
 
 /* errors */
+
 .errors {
   color: red;
-  margin-left: 3%;
+  margin-left: 2px;
 }
 
 /* Registration styling */
+
 .register, .login { 
-  border: 1px solid #ebe6e6;
+  border: 1.5px solid #ebe6e6;
   width: 30%;
   padding:20px;
   margin: 25vh auto;
   box-shadow: 0 10px 10px -5px;
 }
+
 .registration-form, .login-form {
   width: 100%;
   display: flex;
   flex-direction:column;
   font-size: 1.9rem;
 }
-.registration-form input, .login-form input{
+
+.registration-form input, .login-form input {
   width: 100%;
   margin-top:10px;
   font-size: 1.2rem;
   flex: 1;
   padding: 8px;
-  
-  
   border-radius: 3px;
   border: 1px solid #ebe6e6;
-  
-
 }
+
 .register-button, .login-button {
   background-color: #ff896b;
   color: white;
@@ -341,22 +331,10 @@ footer p a {
   margin-right: 5%;
   width: 100%;
   margin-top: 20px;
-
 }
 
-
-
-/* registration responsive css */
 @media only screen and (max-width: 500px) {
   .register,.login {
     width:60%;
   }
 }
-
-/* Login styling */
-.signin-form {
-  text-align: center;
-  background-color: #e8d4b4;
-  border: 1px solid black;
-}
-
