@@ -18,7 +18,7 @@ const MyListingsCards = props => {
             <p>Email: <span>{props.listing.email}</span></p>
             <div className="card-btn-container">
                 <button className="card-btn" onClick={()=> setShowModal(!showModal)}>Edit</button>
-                <button className="card-btn">Delete</button>
+                <button onClick={()=>{props.deleteListing(props.listing.id, props.listing.planner_id)}} className="card-btn">Delete</button>
 
             </div>
             { showModal ? <ListingEdit listing ={props.listing} listingId={props.listing.id} setShowModal={setShowModal}/> : null}
