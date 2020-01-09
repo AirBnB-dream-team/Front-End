@@ -29,10 +29,9 @@ const MyListings = props => {
             <div className="mylistings-cards">
                 {props.listings.map(val=>{
                     return (
-
-                        <div>
+                        <>
                             <MyListingsCards key={val.id} listing={val} deleteListing={props.deleteListing}/>
-                        </div>
+                        </>
 
                     )
                 })}

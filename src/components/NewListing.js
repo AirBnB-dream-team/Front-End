@@ -1,35 +1,21 @@
 import React from 'react';
 import { withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
-
 import {connect} from 'react-redux';
 import {addListing} from '../actions/listingsActions'
 
+function NewListing(props){
 
-
-
-
-
-function NewListing(props){   
-   
-    const { values, touched, errors
-          } = props;
-          
+    const { values, touched, errors } = props;
 
     const checkPrice = (e) => {
         e.preventDefault();
         console.log(props)
-
     }
     return (
-       
             <Form className='new-form'>
-                <div className='label'>
-                    <label htmlFor="bed_number">Bedrooms</label>
-                </div>
+                <label htmlFor="bed_number">Bedrooms</label>
                 <Field
-
-                   
                     name='bed_number' 
                     id='bed_number'
                     placeholder="No. of Bedrooms"
@@ -38,13 +24,8 @@ function NewListing(props){
                 {touched.bed_number && errors.bed_number && (
                     <p className="errors"> {errors.bed_number}</p>
                 )}
-                <div className='label'>
-                    <label htmlFor="bath_number">Bathrooms</label>
-                </div>
-                
-                 <Field
-
-                    
+                <label htmlFor="bath_number">Bathrooms</label>
+                <Field
                     name='bath_number' 
                     id='bath_number'
                     placeholder="No. of bathrooms"
@@ -53,95 +34,79 @@ function NewListing(props){
                 {touched.bath_number && errors.bath_number && (
                     <p className="errors"> {errors.bath_number}</p>
                 )}
-                <div className='label'>
-                    <label htmlFor="zip">Zip Code</label>
-                </div>
+                <label htmlFor="zip">Zip Code</label>
                 <Field
                     
                     name='zip' 
                     id='zip'
-                    placeholder="Zip"
+                    placeholder="Zip Code"
                     value={values.zip}
                 />
                 {touched.zip && errors.zip && (
                     <p className="errors"> {errors.zip}</p>
                 )}
-                <div className='label'>
-                    <label htmlFor="address">Street Address</label>
-                </div>
+                <label htmlFor="address">Street Address</label>
                 <Field
                     name='address' 
                     id='address'
-                    placeholder="address"
+                    placeholder="Street Address"
                     value={values.address}
                 />
                 {touched.address && errors.address && (
                     <p className="errors"> {errors.address}</p>)}
-                <div className='label'>
-                    <label htmlFor="city">City</label>
-                </div>
+                <label htmlFor="city">City</label>
                 <Field
                     name='city' 
                     id='city'
-                    placeholder="city"
+                    placeholder="City"
                     value={values.city}
                 />
-                
                 {touched.city && errors.city && (
                     <p className="errors"> {errors.city}</p>)}
-                <div className='label'>
-                    <label htmlFor="state">State</label>
-                </div>
+                <label htmlFor="state">State</label>
                 <Field
                     name='state' 
                     id='state'
-                    placeholder="state"
+                    placeholder="State"
                     value={values.state}
                 />
                 {touched.state && errors.state && (
                     <p className="errors"> {errors.state}</p>)}
-                <div className='label'>
-                    <label htmlFor="price">Price</label>
-                </div>
+                <label htmlFor="price">Price</label>
                 <Field
                     name='price' 
                     id='price'
-                    placeholder="price"
+                    placeholder="Price"
                     value={values.price}
                 />
                 {touched.price && errors.price && (
                     <p className="errors"> {errors.price}</p>)}
-                <div className='label'>
-                    <label htmlFor="sqft">Sqft</label>
-                </div>
+                <label htmlFor="sqft">Square-Footage</label>
                 <Field
                     name='sqft' 
                     id='sqft'
-                    placeholder="sqft"
+                    placeholder="Sq.Ft"
                     value={values.sqft}
                 />
-
                 {touched.sqft && errors.sqft && (
                     <p className="errors"> {errors.sqft}</p>)}
-                <div className='label'>
-                    <label htmlFor="email">Email</label>
-                </div>
+                    <label htmlFor="email">Email Address</label>
                 <Field
                     name='email' 
                     id='email'
-                    placeholder="email"
+                    placeholder="Email"
                     value={values.email}
                 />
                 {touched.email && errors.email && (
                     <p className="errors"> {errors.email}</p>)}
                 <div className='label'>
-                    <label htmlFor="date">Date</label>
+                    <label htmlFor="date">Check-In Date</label>
                 </div>
                 <Field
                     
                     name='date' 
                     id='date'
-                    placeholder="date"
+                    placeholder="Date"
                     value={values.date}
                 />
                 {touched.date && errors.date && (
@@ -152,12 +117,7 @@ function NewListing(props){
                     
                     <button disabled={Object.getOwnPropertyNames(touched).length === 0|| !(Object.getOwnPropertyNames(errors).length === 0)}type="submit" className="new-btn">Create Listing</button>
                 </div>
-
             </Form>
-       
-            
-       
-
     )
 }
 
@@ -175,17 +135,16 @@ const FormikNewListing = withFormik({
         date,
         }) {
         return {
-          bed_number: bed_number || "",
-          bath_number: bath_number || "",
-          zip: zip || "",
-          address: address || "",
-          city: city || "",
-          state: state ||"",
-          price: price || "",
-          sqft: sqft || "",
-          email: email || "",
-          date: date || ""
-          
+            bed_number: bed_number || "",
+            bath_number: bath_number || "",
+            zip: zip || "",
+            address: address || "",
+            city: city || "",
+            state: state ||"",
+            price: price || "",
+            sqft: sqft || "",
+            email: email || "",
+            date: date || ""
         };
     },
     validationSchema: Yup.object().shape({
@@ -197,13 +156,11 @@ const FormikNewListing = withFormik({
         price:Yup.string().required('Price Required'),
         email: Yup.string().email('Invalid Email Address').required('Email required'),
         date: Yup.string().required('Date Required')
-
     }),
     handleSubmit(values, {props, resetForm}) {
         props.addListing(props.match.params.id, values);
         resetForm();
-      }
-
+    }
 })(NewListing);
 
 export default connect(null, {addListing})(FormikNewListing);
