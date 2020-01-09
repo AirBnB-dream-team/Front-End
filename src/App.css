@@ -8,12 +8,17 @@
 
 body {
   font-size: 1.4rem;
-  height: 100vh;
   background-color: #f3f3f3;
 }
 
 .App {
+  position: relative;
+  min-height: 100vh;
   text-align: center;
+}
+
+.content-wrap {
+  padding-bottom: 18rem;
 }
 
 h1 {
@@ -183,11 +188,13 @@ nav a:hover {
   border-radius: 10px;
   box-shadow: 0 10px 10px -5px;
   position:  fixed;
-  top: 20px;
+  top: 10px;
   z-index: 1;
   animation: fadeIn 2s;
   width: 30%;
+  max-height: 92vh;
   border: black 1px solid;
+  overflow: scroll;
 }
 
 .edit-form input,.new-form input {
@@ -225,6 +232,13 @@ nav a:hover {
 .modal-btn:hover {
   background-color: #ff896b;
   color: white;
+}
+
+.modal-btn:disabled,
+.modal-btn[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
 }
 
 /* New listing form styling */
@@ -265,6 +279,13 @@ nav a:hover {
   color: white;
 }
 
+.new-btn:disabled,
+.new-btn[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
 /* Footer styling */
 
 .footer {
@@ -272,10 +293,13 @@ nav a:hover {
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(232,212,180,1) 0%, rgba(246,160,122,0.9836309523809523) 50%, rgba(255,137,107,1) 100%);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  padding: 1.2% 0;
-  margin-top: 3%;
   bottom:0;
   width:100%;
+  height: 12rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
 }
 
 footer p {
