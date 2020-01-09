@@ -1,13 +1,9 @@
 * {
   
   box-sizing: border-box;
-  font-size:62.5%;
+  font-size: 62.5%;
   font-family: 'Montserrat', sans-serif;
   
-}
-
-body {
-  font-size: 1.4rem;
 }
 
 .App {
@@ -32,7 +28,7 @@ h4 {
   font-size: 1.8rem;
 }
 
-label, p {
+p {
   font-size: 1.4rem;
 }
 
@@ -192,8 +188,6 @@ nav a:hover {
   border: black 1px solid;
 }
 
-
-
 .edit-form input {
   font-size: 1.5rem;
   width: 95%;
@@ -253,24 +247,22 @@ footer p a {
 /* errors */
 .errors {
   color: red;
-  margin-left: 3%;
 }
 
 /* Registration styling */
-.register, .login { 
+.register { 
   border: 1px solid #ebe6e6;
   width: 30%;
   padding:20px;
   margin: 25vh auto;
-  box-shadow: 0 10px 10px -5px;
 }
-.registration-form, .login-form {
+.registration-form {
   width: 100%;
   display: flex;
   flex-direction:column;
   font-size: 1.9rem;
 }
-.registration-form input, .login-form input{
+.registration-form input {
   width: 100%;
   margin-top:10px;
   font-size: 1.2rem;
@@ -283,22 +275,20 @@ footer p a {
   
 
 }
-.register-button, .login-button {
-  background-color: #ff896b;
-  color: white;
-  border: 1px solid black;
-  border-radius: 4px;
-  padding: 3%;
-  margin-right: 5%;
+.registration-form button {
   width: 100%;
-  margin-top: 20px;
+  margin-top:10px;
+  border-radius: 4px;
+  line-height: 24px;
+  font-size: 1.6rem;
+  background:#e8d4b4;
 
 }
 
 
 /* registration responsive css */
 @media only screen and (max-width: 500px) {
-  .register,.login {
+  .register {
     width:60%;
   }
 }

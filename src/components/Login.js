@@ -13,7 +13,9 @@ function LoginForm(props){
           } = props;
     return (
        
-            <Form className='login-form'>
+            <div className="login">
+                <Form className='login-form'>
+                <div>
                 <label htmlFor='username'>Username</label>
                 <Field
                     name='username' 
@@ -21,8 +23,10 @@ function LoginForm(props){
                     value={values.username}
                 />
                 {touched.username && errors.username && (
-                    <p> {errors.username}</p>
+                    <p className="errors"> {errors.username}</p>
                 )}
+                </div>
+                <div>
                 <label htmlFor='password'>Password</label>
                 <Field 
                     type='password' 
@@ -31,11 +35,13 @@ function LoginForm(props){
                     value = {values.password}
                 />
                 {touched.password && errors.password && (
-                    <p> {errors.password}</p>
+                    <p className='errors'> {errors.password}</p>
                 )}
-                <button type="submit">Login</button>
+                </div>
+                <button type="submit" className='login-button'>Login</button>
 
             </Form>
+            </div>
        
             
        

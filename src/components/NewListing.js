@@ -30,7 +30,7 @@ function NewListing(props){
 
                    
                     name='bed_number' 
-                    id='bedrooms'
+                    id='bed_number'
                     placeholder="No. of Bedrooms"
                     value={values.bed_number}
                 />
@@ -41,7 +41,7 @@ function NewListing(props){
 
                     
                     name='bath_number' 
-                    id='bathrooms'
+                    id='bath_number'
                     placeholder="No. of bathrooms"
                     value={values.bath_number}
                 />
@@ -163,8 +163,8 @@ const FormikNewListing = withFormik({
         };
     },
     validationSchema: Yup.object().shape({
-        bedrooms:Yup.string().required("Bedrooms required"),
-        bathrooms:Yup.string().required("Bathrooms required"),
+        bed_number:Yup.string().required("Bedrooms required"),
+        bath_number:Yup.string().required("Bathrooms required"),
         zip: Yup.string().required("Zip Required").test('len', 'Must be exactly 5 characters', val => val && val.toString().length === 5),
         address:Yup.string().required('Address Required'),
         city:Yup.string().required('City Required'),
