@@ -30,7 +30,7 @@ const MyListings = props => {
                 {props.listings.map(val=>{
                     return (
                         <div>
-                            <MyListingsCards key={val.id} listing={val}/>
+                            <MyListingsCards key={val.id} listing={val} deleteListing={props.deleteListing(val.id)}/>
                         </div>
                     )
                 })}

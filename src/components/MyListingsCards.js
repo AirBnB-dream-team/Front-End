@@ -1,8 +1,6 @@
 import React, { useState }from 'react';
 import ListingEdit from './ListingEdit'
 
-import {deleteListing} from '../actions/listingsActions'
-
 
 const MyListingsCards = props => {
     const [showModal, setShowModal] = useState(false)
@@ -19,7 +17,7 @@ const MyListingsCards = props => {
             <span><p>Email:</p> <h4>{props.listing.email}</h4></span>
             <div>
               <button onClick={()=> setShowModal(true)}>Edit</button>
-              <button>Delete</button>
+              <button >Delete</button>
 
                 { showModal ? <ListingEdit listing ={props.listing} listingId={props.listing.id} showModal={showModal} setShowModal={()=> setShowModal(false)}/> : null}
             </div>
