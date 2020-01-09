@@ -14,7 +14,7 @@ function Edit(props){
     
     
    
-    const { values, touched, errors, setShowModal
+    const { values, touched, errors
           } = props;
 
           
