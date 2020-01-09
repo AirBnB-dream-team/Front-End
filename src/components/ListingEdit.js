@@ -125,9 +125,9 @@ function Edit(props){
                     />
                     {touched.date && errors.date && (
                         <p className="error"> {errors.date}</p>)}
-                <button disabled={!values.bed_number || !values.bath_number}onClick={checkPrice}>Check Price</button>
+                <button disabled={!values.bed_number || !values.bath_number || !values.zip }onClick={checkPrice}>Check Price</button>
                 
-                <button disabled={Object.getOwnPropertyNames(touched).length === 0|| !(Object.getOwnPropertyNames(errors).length === 0)}type="submit" >Save Listing</button>
+                <button type="submit" >Save Listing</button>
 
             </Form>
        
@@ -138,29 +138,18 @@ function Edit(props){
 }
 
 const FormikEdit = withFormik({
-    mapPropsToValues({ 
-        bed_number,
-        bath_number,
-        zip,
-        address,
-        city,
-        state,
-        price,
-        sqft,
-        email,
-        date,
-        }) {
+    mapPropsToValues(props) {
         return {
-          bed_number: bed_number || "",
-          bath_number: bath_number || "",
-          zip: zip || "",
-          address: address || "",
-          city: city || "",
-          state: state ||"",
-          price: price || "",
-          sqft: sqft || "",
-          email: email || "",
-          date: date || ""
+          bed_number: props.listing.bed_number || "",
+          bath_number: props.listing.bath_number || "",
+          zip: props.listing.zip || "",
+          address: props.listing.address || "",
+          city: props.listing.city || "",
+          state: props.listing.state ||"",
+          price: props.listing.price || "",
+          sqft:  props.listing.sqft || "",
+          email: props.listing.email || "",
+          date: props.listing.date || ""
           
         };
     },
