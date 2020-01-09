@@ -14,7 +14,6 @@ const MyListings = props => {
     useEffect(()=>{
         props.getUserListings(props.match.params.id);
     },[])
-
     
     return (
         <div className="mylistings-page">

@@ -16,12 +16,14 @@ import {PrivateRoute} from './components/PrivateRoute'
 function App() {
   return (
     <div className="App">
+      <div className="content-wrap">
         <Route path='/' component={NavBar}/>
         <Route path='/login' component={Login}/>
         <Route path='/register' component={RegisterForm}/>  
         <PrivateRoute path='/my-listings/:id' component={MyListings}/>
         <PrivateRoute path='/new-listing/:id' component={NewListing}/>
         <PrivateRoute path='/all-listings/:id' component={AllListingsPage}/>
+      </div>
       <Footer />
     </div>
   );
