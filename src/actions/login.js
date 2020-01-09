@@ -15,6 +15,8 @@ export const login = (credentials) => {return dispatch => {
         .then(res => {
             dispatch({type: LOGIN_SUCCESS, payload: res});
             localStorage.setItem('token', res.data.token)
+            localStorage.setItem('id', res.data.id)
+            console.log('setting user id', res.data.id)
             history.push(`/my-listings/${res.data.id}`)
         })
         .catch(err=> {

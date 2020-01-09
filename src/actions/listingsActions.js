@@ -21,6 +21,18 @@ export const getUserListings = (id) => dispatch => {
         })
 }
 
+export const getAllListings = () => dispatch => {
+    dispatch({type: UPDATING})
+    axiosWithAuth()
+        .get('/api')
+        .then(res=>{
+            dispatch({type: GET_SUCCESS, payload: res.data})
+        })
+        .catch(err =>{
+            dispatch({type: FAILURE, payload: err})
+        })
+}
+
 export const addListing = (id, info) => dispatch => {
     dispatch({type: UPDATING})
     axiosWithAuth()
@@ -37,7 +49,7 @@ export const addListing = (id, info) => dispatch => {
 export const deleteListing = (id, userId) => dispatch => {
     dispatch({type: UPDATING})
     axiosWithAuth()
-        .put(`/api/${id}`)
+        .delete(`/api/${id}`)
         .then(res=>{
             console.log('update listing res', res)
             dispatch({type: DELETE_SUCCESS})
@@ -70,8 +82,12 @@ export const updateListing = (id, info, userId) => dispatch => {
                 .catch(err=>{
                     dispatch({type: FAILURE, payload: res})
                 })
+            
         })
         .catch(err=>{
             dispatch({type: FAILURE, payload: err})
         })
-}
+        // .finally(()=>{
+        //     window.location.reload()
+        // })
+ }

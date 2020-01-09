@@ -126,7 +126,7 @@ function Edit(props){
                         <p className="error"> {errors.date}</p>)}
                 <button disabled={!values.bed_number || !values.bath_number}onClick={checkPrice}>Check Price</button>
                 
-                <button disabled={Object.getOwnPropertyNames(touched).length === 0|| !(Object.getOwnPropertyNames(errors).length === 0)}type="submit">Save Listing</button>
+                <button disabled={Object.getOwnPropertyNames(touched).length === 0|| !(Object.getOwnPropertyNames(errors).length === 0)}type="submit" >Save Listing</button>
 
             </Form>
        
@@ -177,6 +177,7 @@ const FormikEdit = withFormik({
     handleSubmit(values, {props, resetForm}) {
         props.updateListing(props.listing.id, values, props.listing.planner_id);
         resetForm();
+        props.setShowModal(false)
       }
 
 })(Edit);
