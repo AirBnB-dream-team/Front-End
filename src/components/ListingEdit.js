@@ -117,8 +117,8 @@ function Edit(props){
                 {touched.date && errors.date && (
                     <p className="error"> {errors.date}</p>)}
             <div className="editmodal-btns">
-                <button className="modal-btn" disabled={!values.bed_number || !values.bath_number}onClick={checkPrice}>Check Price</button>
-                <button className="modal-btn" disabled={Object.getOwnPropertyNames(touched).length === 0|| !(Object.getOwnPropertyNames(errors).length === 0)}type="submit" >Save Listing</button>
+                <button className="modal-btn" disabled={!values.bed_number || !values.bath_number || !values.zip}onClick={checkPrice}>Check Price</button>
+                <button className="modal-btn" disabled={!(Object.getOwnPropertyNames(errors).length === 0)}type="submit" >Save Listing</button>
             </div>
         </Form>
     )
