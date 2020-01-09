@@ -137,18 +137,29 @@ function Edit(props){
 }
 
 const FormikEdit = withFormik({
-    mapPropsToValues(props) {
+    mapPropsToValues({ 
+        bed_number,
+        bath_number,
+        zip,
+        address,
+        city,
+        state,
+        price,
+        sqft,
+        email,
+        date,
+        }) {
         return {
-          bed_number: props.listings.bed_number || "",
-          bath_number: props.listings.bath_number || "",
-          zip: props.listings.zip || "",
-          address: props.listings.address || "",
-          city: props.listings.city || "",
-          state: props.listings.state ||"",
-          price: props.listings.price || "",
-          sqft: props.listings.sqft || "",
-          email: props.listings.email || "",
-          date: props.listings.date || ""
+          bed_number: bed_number || "",
+          bath_number: bath_number || "",
+          zip: zip || "",
+          address: address || "",
+          city: city || "",
+          state: state ||"",
+          price: price || "",
+          sqft: sqft || "",
+          email: email || "",
+          date: date || ""
           
         };
     },
