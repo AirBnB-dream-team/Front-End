@@ -345,6 +345,7 @@ footer p a {
 }
 
 
+
 /* registration responsive css */
 @media only screen and (max-width: 500px) {
   .register,.login {
@@ -358,3 +359,4 @@ footer p a {
   background-color: #e8d4b4;
   border: 1px solid black;
 }
+

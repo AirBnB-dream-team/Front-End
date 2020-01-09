@@ -14,6 +14,7 @@ const MyListings = props => {
     useEffect(()=>{
         props.getUserListings(props.match.params.id);
     },[])
+
     
     return (
         <div className="mylistings-page">
@@ -28,9 +29,11 @@ const MyListings = props => {
             <div className="mylistings-cards">
                 {props.listings.map(val=>{
                     return (
-                        <>
-                            <MyListingsCards key={val.id} listing={val}/>
-                        </>
+
+                        <div>
+                            <MyListingsCards key={val.id} listing={val} deleteListing={props.deleteListing}/>
+                        </div>
+
                     )
                 })}
             </div>
