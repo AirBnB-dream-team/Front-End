@@ -11,129 +11,114 @@ import {updateListing} from '../actions/listingsActions'
 
 
 function Edit(props){  
-    
-    
-   
-    const { values, touched, errors
-          } = props;
 
-          
+    const { values, touched, errors } = props;
 
+    const checkPrice = (e) => {
+        e.preventDefault();
+        console.log(props)
 
-          const checkPrice = (e) => {
-            e.preventDefault();
-            console.log(props)
-    
-        }
-        return (
-           
-                <Form className='new-listing'>
-                    <Field
-    
-                       
-                        name='bed_number' 
-                        id='bed_number'
-                        placeholder="No. of Bedrooms"
-                        value={values.bed_number}
-                    />
-                    {touched.bed_number && errors.bed_number && (
-                        <p className="error"> {errors.bed_number}</p>
-                    )}
-                     <Field
-    
-                        
-                        name='bath_number' 
-                        id='bath_number'
-                        placeholder="No. of bathrooms"
-                        value={values.bath_number}
-                    />
-                    {touched.bath_number && errors.bath_number && (
-                        <p className="error"> {errors.bath_number}</p>
-                    )}
-    
-                    <Field
-                        
-                        name='zip' 
-                        id='zip'
-                        placeholder="Zip"
-                        value={values.zip}
-                    />
-                    {touched.zip && errors.zip && (
-                        <p className="error"> {errors.zip}</p>
-                    )}
-    
-                    <Field
-                        name='address' 
-                        id='address'
-                        placeholder="address"
-                        value={values.address}
-                    />
-                    {touched.address && errors.address && (
-                        <p className="error"> {errors.address}</p>)}
-    
-                    <Field
-                        name='city' 
-                        id='city'
-                        placeholder="city"
-                        value={values.city}
-                    />
-                    
-                    {touched.city && errors.city && (
-                        <p className="error"> {errors.city}</p>)}
-    
-                    <Field
-                        name='state' 
-                        id='state'
-                        placeholder="state"
-                        value={values.state}
-                    />
-                    {touched.state && errors.state && (
-                        <p className="error"> {errors.state}</p>)}
-                    <Field
-                        name='price' 
-                        id='price'
-                        placeholder="price"
-                        value={values.price}
-                    />
-                    {touched.price && errors.price && (
-                        <p className="error"> {errors.price}</p>)}
-    
-                    <Field
-                        name='sqft' 
-                        id='sqft'
-                        placeholder="sqft"
-                        value={values.sqft}
-                    />
-    
-                    {touched.sqft && errors.sqft && (
-                        <p className="error"> {errors.sqft}</p>)}
-                    <Field
-                        name='email' 
-                        id='email'
-                        placeholder="email"
-                        value={values.email}
-                    />
-                    {touched.email && errors.email && (
-                        <p className="error"> {errors.email}</p>)}
-    
-                    <Field
-                        
-                        name='date' 
-                        id='date'
-                        placeholder="date"
-                        value={values.date}
-                    />
-                    {touched.date && errors.date && (
-                        <p className="error"> {errors.date}</p>)}
-                <button disabled={!values.bed_number || !values.bath_number}onClick={checkPrice}>Check Price</button>
-                
-                <button disabled={Object.getOwnPropertyNames(touched).length === 0|| !(Object.getOwnPropertyNames(errors).length === 0)}type="submit" >Save Listing</button>
-
-            </Form>
-       
-            
-       
-
+    }
+    return (
+            <Form className='edit-form'>
+                <label htmlFor="bed_number">Bedrooms</label>
+                <Field
+                    name='bed_number' 
+                    id='bed_number'
+                    placeholder="No. of Bedrooms"
+                    value={values.bed_number}
+                />
+                {touched.bed_number && errors.bed_number && (
+                    <p className="error"> {errors.bed_number}</p>
+                )}
+                <label htmlFor="bath_number">Bathrooms</label>
+                <Field
+                    name='bath_number' 
+                    id='bath_number'
+                    placeholder="No. of bathrooms"
+                    value={values.bath_number}
+                />
+                {touched.bath_number && errors.bath_number && (
+                    <p className="error"> {errors.bath_number}</p>
+                )}
+                <label htmlFor="zip">Zip Code</label>    
+                <Field
+                    name='zip' 
+                    id='zip'
+                    placeholder="Zip Code"
+                    value={values.zip}
+                />
+                {touched.zip && errors.zip && (
+                    <p className="error"> {errors.zip}</p>
+                )}
+                <label htmlFor="address">Street Address</label>
+                <Field
+                    name='address' 
+                    id='address'
+                    placeholder="Street Address"
+                    value={values.address}
+                />
+                {touched.address && errors.address && (
+                    <p className="error"> {errors.address}</p>)}
+                <label htmlFor="city">City</label>
+                <Field
+                    name='city' 
+                    id='city'
+                    placeholder="City"
+                    value={values.city}
+                />
+                {touched.city && errors.city && (
+                    <p className="error"> {errors.city}</p>)}
+                <label htmlFor="state">State</label>
+                <Field
+                    name='state' 
+                    id='state'
+                    placeholder="State"
+                    value={values.state}
+                />
+                {touched.state && errors.state && (
+                    <p className="error"> {errors.state}</p>)}
+                <label htmlFor="price">Price</label>
+                <Field
+                    name='price' 
+                    id='price'
+                    placeholder="Price"
+                    value={values.price}
+                />
+                {touched.price && errors.price && (
+                    <p className="error"> {errors.price}</p>)}
+                <label htmlFor="sqft">Square-Footage</label>
+                <Field
+                    name='sqft' 
+                    id='sqft'
+                    placeholder="Sq.Ft"
+                    value={values.sqft}
+                />
+                {touched.sqft && errors.sqft && (
+                    <p className="error"> {errors.sqft}</p>)}
+                <label htmlFor="email">Email Address</label>
+                <Field
+                    name='email' 
+                    id='email'
+                    placeholder="Email"
+                    value={values.email}
+                />
+                {touched.email && errors.email && (
+                    <p className="error"> {errors.email}</p>)}
+                <label htmlFor="date">Check-In Date</label>
+                <Field
+                    name='date' 
+                    id='date'
+                    placeholder="Date"
+                    value={values.date}
+                />
+                {touched.date && errors.date && (
+                    <p className="error"> {errors.date}</p>)}
+            <div className="editmodal-btns">
+                <button className="modal-btn" disabled={!values.bed_number || !values.bath_number}onClick={checkPrice}>Check Price</button>
+                <button className="modal-btn" disabled={Object.getOwnPropertyNames(touched).length === 0|| !(Object.getOwnPropertyNames(errors).length === 0)}type="submit" >Save Listing</button>
+            </div>
+        </Form>
     )
 }
 
@@ -151,17 +136,16 @@ const FormikEdit = withFormik({
         date,
         }) {
         return {
-          bed_number: bed_number || "",
-          bath_number: bath_number || "",
-          zip: zip || "",
-          address: address || "",
-          city: city || "",
-          state: state ||"",
-          price: price || "",
-          sqft: sqft || "",
-          email: email || "",
-          date: date || ""
-          
+            bed_number: bed_number || "",
+            bath_number: bath_number || "",
+            zip: zip || "",
+            address: address || "",
+            city: city || "",
+            state: state ||"",
+            price: price || "",
+            sqft: sqft || "",
+            email: email || "",
+            date: date || ""
         };
     },
     validationSchema: Yup.object().shape({
@@ -179,8 +163,7 @@ const FormikEdit = withFormik({
         props.updateListing(props.listing.id, values, props.listing.planner_id);
         resetForm();
         props.setShowModal(false)
-      }
-
+    }
 })(Edit);
 
 export default connect(null, {updateListing})(FormikEdit);
