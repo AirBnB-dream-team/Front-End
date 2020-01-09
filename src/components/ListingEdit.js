@@ -11,9 +11,11 @@ import {updateListing} from '../actions/listingsActions'
 
 
 function Edit(props){  
-
-    const { values, touched, errors } = props;
-
+    
+    
+   
+    const { values, touched, errors
+          } = props;
     const checkPrice = (e) => {
         e.preventDefault();
         console.log(props)
@@ -115,37 +117,27 @@ function Edit(props){
                 {touched.date && errors.date && (
                     <p className="error"> {errors.date}</p>)}
             <div className="editmodal-btns">
-                <button className="modal-btn" disabled={!values.bed_number || !values.bath_number}onClick={checkPrice}>Check Price</button>
-                <button className="modal-btn" disabled={Object.getOwnPropertyNames(touched).length === 0|| !(Object.getOwnPropertyNames(errors).length === 0)}type="submit" >Save Listing</button>
+                <button className="modal-btn" disabled={!values.bed_number || !values.bath_number || !values.zip}onClick={checkPrice}>Check Price</button>
+                <button className="modal-btn" disabled={!(Object.getOwnPropertyNames(errors).length === 0)}type="submit" >Save Listing</button>
             </div>
         </Form>
     )
 }
 
 const FormikEdit = withFormik({
-    mapPropsToValues({ 
-        bed_number,
-        bath_number,
-        zip,
-        address,
-        city,
-        state,
-        price,
-        sqft,
-        email,
-        date,
-        }) {
+    mapPropsToValues(props) {
         return {
-            bed_number: bed_number || "",
-            bath_number: bath_number || "",
-            zip: zip || "",
-            address: address || "",
-            city: city || "",
-            state: state ||"",
-            price: price || "",
-            sqft: sqft || "",
-            email: email || "",
-            date: date || ""
+          bed_number: props.listing.bed_number || "",
+          bath_number: props.listing.bath_number || "",
+          zip: props.listing.zip || "",
+          address: props.listing.address || "",
+          city: props.listing.city || "",
+          state: props.listing.state ||"",
+          price: props.listing.price || "",
+          sqft:  props.listing.sqft || "",
+          email: props.listing.email || "",
+          date: props.listing.date || ""
+          
         };
     },
     validationSchema: Yup.object().shape({

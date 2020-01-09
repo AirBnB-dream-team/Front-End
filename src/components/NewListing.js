@@ -113,7 +113,8 @@ function NewListing(props){
                     <p className="errors"> {errors.date}</p>)}
                 
                 <div className="editmodal-btns">
-                    <button disabled={!values.bed_number || !values.bath_number}onClick={checkPrice}className="new-btn">Check Price</button>
+                    <button disabled={!values.bed_number || !values.bath_number || !values.zip} onClick={checkPrice}className="new-btn">Check Price</button>
+                    
                     <button disabled={Object.getOwnPropertyNames(touched).length === 0|| !(Object.getOwnPropertyNames(errors).length === 0)}type="submit" className="new-btn">Create Listing</button>
                 </div>
             </Form>
