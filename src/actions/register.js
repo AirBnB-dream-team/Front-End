@@ -9,7 +9,7 @@ export const register = values => dispatch => {
     dispatch({type: START_REGISTER});
     axios
         .post(
-            '/auth/register',
+            'https://airbnbclonedevin.herokuapp.com/auth/register',
             values
         )
         .then(res => {
