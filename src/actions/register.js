@@ -1,4 +1,4 @@
-import {axiosWithAuth} from '../utils/axiosWithAuth'
+import axios from 'axios'
 import history from '../history'
 
 export const START_REGISTER = "START_REGISTER"
@@ -7,7 +7,7 @@ export const REGISTER_FAILURE = "REGISTER_FAILURE"
 
 export const register = values => dispatch => {
     dispatch({type: START_REGISTER});
-    axiosWithAuth()
+    axios
         .post(
             '/auth/register',
             values

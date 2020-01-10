@@ -18,7 +18,7 @@ function NavBar(){
                 {localStorage.getItem('id') ? (<NavLink onClick={()=>{clearLocalStorage()}} to="/login" activeClassName="active-nav">Logout</NavLink>) : null}
                 {!localStorage.getItem('id') ? (<NavLink to="/login" activeClassName="active-nav">Login</NavLink>) : null}
                 {!localStorage.getItem('id') ? (<NavLink to="/register" activeClassName="active-nav">Register</NavLink>) : null}
-                {/* (<NavLink to="/login">Login</NavLink>) */}
+                
                 
                 
             </nav>
