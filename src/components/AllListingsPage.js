@@ -27,9 +27,9 @@ const AllListings = props => {
             <div className="mylistings-cards">
 
                 {props.listings.map(val=>(
-                    <div>
+                    <>
                         <AllListingsCards key={val.id} listing={val}/>
-                    </div>
+                    </>
                 ))}
 
             </div>
