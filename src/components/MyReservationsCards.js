@@ -1,12 +1,7 @@
-import React, { useState }from 'react';
-import ListingEdit from './ListingEdit';
+import React from 'react';
 
-
-const MyListingsCards = props => {
-    const [showModal, setShowModal] = useState(false)
-
+const MyReservationsCards = props => {
     return (
-
         <div className="individual-card">
             <h1>$<span className="card-price">{props.listing.price}</span></h1>
             <h3>{props.listing.address}</h3>
@@ -17,12 +12,10 @@ const MyListingsCards = props => {
             <p>Date: <span>{props.listing.date}</span></p>
             <p>Email: <span>{props.listing.email}</span></p>
             <div className="card-btn-container">
-                <button className="card-btn" onClick={()=> setShowModal(!showModal)}>Edit</button>
-                <button className="card-btn">Delete</button>
+                <button className="card-btn">Unreserve</button>
             </div>
-            { showModal ? <ListingEdit listing ={props.listing} listingId={props.listing.id} setShowModal={setShowModal}/> : null}
         </div>
     );
 
 };
-export default MyListingsCards
+export default MyReservationsCards;

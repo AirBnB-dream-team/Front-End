@@ -15,6 +15,7 @@ function NavBar(){
             <nav>
                 <NavLink to={`/my-listings/${localStorage.getItem("id")}`} activeClassName="active-nav">My Listings</NavLink>
                 <NavLink to={`/all-listings/${localStorage.getItem("id")}`} activeClassName="active-nav">All Listings</NavLink>
+                <NavLink to={`/my-reservations/${localStorage.getItem("id")}`} activeClassName="active-nav">My Reservations</NavLink>
                 {localStorage.getItem('id') ? (<NavLink onClick={()=>{clearLocalStorage()}} to="/login" activeClassName="active-nav">Logout</NavLink>) : null}
                 {!localStorage.getItem('id') ? (<NavLink to="/login" activeClassName="active-nav">Login</NavLink>) : null}
                 {!localStorage.getItem('id') ? (<NavLink to="/register" activeClassName="active-nav">Register</NavLink>) : null}
