@@ -1,6 +1,6 @@
 
 import React, {useEffect} from 'react';
-import MyReservationsCards from './AllListingsCards';
+import MyReservationsCards from './MyReservationsCards';
 import { connect } from "react-redux";
 import {
     getUserListings,

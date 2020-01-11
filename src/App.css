@@ -251,7 +251,7 @@ nav a:hover {
 }
 
 .card-btn {
-  width: 100px;
+  width: 120px;
   font-size: 1.4rem;
   text-transform: uppercase;
   padding: 7px 5px;
@@ -270,8 +270,30 @@ nav a:hover {
   color: white;
 }
 
+/* AllListings styling */
+
 .alllistings-card {
   min-height: 450px;
+}
+
+/* MyReservations styling */
+
+.reserve-btn-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap:wrap;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 7%;
+}
+
+.reserve-btn {
+  width: 180px;
+  color: red;
 }
 
 /* Edit Modal styling */
@@ -328,7 +350,7 @@ nav a:hover {
   width: 120px;
   font-size: 1.4rem;
   text-transform: uppercase;
-  padding: 7px 5px;
+  padding: 10px 5px;
   border: 1.5px solid #ff896b;
   border-radius: 5px;
   background-color: #e8d4b4;
@@ -389,7 +411,7 @@ nav a:hover {
   width: 160px;
   font-size: 1.4rem;
   text-transform: uppercase;
-  padding: 7px 5px;
+  padding: 12px 5px;
   border: 1.5px solid #ff896b;
   border-radius: 5px;
   background-color: #e8d4b4;
@@ -398,18 +420,6 @@ nav a:hover {
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.125);
   transition: all 0.3s ease 0s;
   cursor: pointer;
-}
-
-@media only screen and (max-width: 800px) {
-  .new-btn {
-    padding: 12px 5px;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .new-btn {
-    padding: 12px 5px;
-  }
 }
 
 .new-btn:hover {
