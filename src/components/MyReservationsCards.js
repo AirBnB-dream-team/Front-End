@@ -2,7 +2,7 @@ import React from 'react';
 
 const MyReservationsCards = props => {
     return (
-        <div className="individual-card">
+        <div className="individual-card alllistings-card">
             <h1>$<span className="card-price">{props.listing.price}</span></h1>
             <h3>{props.listing.address}</h3>
             <h3 className="card-city-state">{props.listing.city}, {props.listing.state} {props.listing.zip}</h3>

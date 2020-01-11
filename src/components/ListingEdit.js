@@ -1,25 +1,14 @@
 import React from 'react';
 import { withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
-
 import {connect} from 'react-redux';
 import {updateListing} from '../actions/listingsActions'
 
-
-
-
-
-
 function Edit(props){  
-    
-    
-   
     const { values, touched, errors
           } = props;
     const checkPrice = (e) => {
         e.preventDefault();
-        console.log(props)
-
     }
     return (
             <Form className='edit-form'>
@@ -119,7 +108,7 @@ function Edit(props){
             <div className="editmodal-btns">
                 <button className="modal-btn" disabled={!values.bed_number || !values.bath_number || !values.zip}onClick={checkPrice}>Check Price</button>
                 <button className="modal-btn" disabled={!(Object.getOwnPropertyNames(errors).length === 0)}type="submit" >Save Listing</button>
-                <button className="modal-btn" onClick={()=>{props.setShowModal(false)}}>Cancel</button>
+                <button className="modal-btn cancel-btn" onClick={()=>{props.setShowModal(false)}}>Cancel</button>
             </div>
         </Form>
     )
@@ -150,7 +139,6 @@ const FormikEdit = withFormik({
         price:Yup.string().required('Price Required'),
         email: Yup.string().email('Invalid Email Address').required('Email required'),
         date: Yup.string().required('Date Required')
-
     }),
     handleSubmit(values, {props, resetForm}) {
         props.updateListing(props.listing.id, values, props.listing.planner_id);

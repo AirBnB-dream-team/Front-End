@@ -6,7 +6,7 @@
 
 body {
   font-size: 1.4rem;
-  background-color: #f3f3f3;
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 }
 
 .App {
@@ -193,16 +193,20 @@ nav a:hover {
   margin: 1.5%;
   padding: 1.5% 2.5%;
   border: 1px solid black;
-  background-color: #ebe6e6;
-  border-radius: 10px;
+  background: rgb(234,227,222);
+  background: linear-gradient(270deg, rgba(234,227,222,1) 0%, rgba(235,229,226,1) 50%, rgba(235,230,230,1) 100%);
   box-shadow: 0 10px 10px -5px;
   text-align: left;
-  max-height: 40%;
+  min-height: 500px;
+  min-width: 420px;
+  overflow: scroll;
+  position: relative;
 }
 
 @media only screen and (max-width: 800px) {
   .individual-card {
     width: 45%;
+    min-width: 350px;
   }
 }
 
@@ -210,6 +214,14 @@ nav a:hover {
   .individual-card {
     width: 75%;
     margin: 2.5%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .individual-card {
+    width: 95%;
+    min-width: 300px;
+    min-height: 450px;
   }
 }
 
@@ -221,10 +233,21 @@ nav a:hover {
   margin-top: -4%;
 }
 
+.card-last-line {
+  margin-bottom: 60px;
+}
+
 .card-btn-container {
   display: flex;
   justify-content: center;
   flex-wrap:wrap;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 7%;
 }
 
 .card-btn {
@@ -236,16 +259,19 @@ nav a:hover {
   border-radius: 5px;
   background-color: #e8d4b4;
   color: black;
-  margin: 5% 5%;
+  margin: 0 5%;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.125);
   transition: all 0.3s ease 0s;
   cursor: pointer;
-  outline: none;
 }
 
 .card-btn:hover {
   background-color: #ff896b;
   color: white;
+}
+
+.alllistings-card {
+  min-height: 450px;
 }
 
 /* Edit Modal styling */
@@ -254,8 +280,8 @@ nav a:hover {
   margin: 1.5%;
   padding: 2% 3%;
   border: 1px solid black;
-  background-color: #ebe6e6;
-  border-radius: 10px;
+  background: rgb(234,227,222);
+  background: linear-gradient(270deg, rgba(234,227,222,1) 0%, rgba(235,229,226,1) 50%, rgba(235,230,230,1) 100%);
   box-shadow: 0 10px 10px -5px;
   position:  fixed;
   top: 10px;
@@ -318,6 +344,10 @@ nav a:hover {
   color: white;
 }
 
+.cancel-btn {
+  color: red;
+}
+
 .modal-btn:disabled,
 .modal-btn[disabled] {
   border: 1px solid #999999;
@@ -331,8 +361,8 @@ nav a:hover {
   margin: 60px auto;
   padding: 3% 3% 1.5% 3%;
   border: 1px solid black;
-  background-color: #ebe6e6;
-  border-radius: 10px;
+  background: rgb(234,227,222);
+  background: linear-gradient(270deg, rgba(234,227,222,1) 0%, rgba(235,229,226,1) 50%, rgba(235,230,230,1) 100%);
   box-shadow: 0 10px 10px -5px;
   width: 50%;
   border: black 1px solid;
