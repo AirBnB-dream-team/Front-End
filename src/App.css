@@ -193,6 +193,7 @@ nav a:hover {
   margin: 1.5%;
   padding: 1.5% 2.5%;
   border: 1px solid black;
+  border-radius: 4px;
   background: rgb(234,227,222);
   background: linear-gradient(270deg, rgba(234,227,222,1) 0%, rgba(235,229,226,1) 50%, rgba(235,230,230,1) 100%);
   box-shadow: 0 10px 10px -5px;
@@ -302,6 +303,7 @@ nav a:hover {
   margin: 1.5%;
   padding: 2% 3%;
   border: 1px solid black;
+  border-radius: 4px;
   background: rgb(234,227,222);
   background: linear-gradient(270deg, rgba(234,227,222,1) 0%, rgba(235,229,226,1) 50%, rgba(235,230,230,1) 100%);
   box-shadow: 0 10px 10px -5px;
@@ -383,6 +385,7 @@ nav a:hover {
   margin: 60px auto;
   padding: 3% 3% 1.5% 3%;
   border: 1px solid black;
+  border-radius: 4px;
   background: rgb(234,227,222);
   background: linear-gradient(270deg, rgba(234,227,222,1) 0%, rgba(235,229,226,1) 50%, rgba(235,230,230,1) 100%);
   box-shadow: 0 10px 10px -5px;
